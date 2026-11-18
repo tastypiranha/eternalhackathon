@@ -18,6 +18,7 @@ import model as M
 import mqtt_tag
 import predict as P
 import run_testcases
+import shipment as SH
 from world import World
 
 world: World | None = None
@@ -144,6 +145,19 @@ async def api_predict(body: dict):
     try:
         return P.predict(body)
     except P.PredictError as e:
+        raise HTTPException(400, str(e))
+
+
+@app.get("/api/shipments/options")
+async def shipment_options():
+    return SH.options()
+
+
+@app.post("/api/shipments/simulate")
+async def shipment_simulate(body: dict):
+    try:
+        return SH.simulate(body)
+    except SH.ShipmentError as e:
         raise HTTPException(400, str(e))
 
 

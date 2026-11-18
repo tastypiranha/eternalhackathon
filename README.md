@@ -27,7 +27,12 @@ FRESHSENSE_MQTT_TOPIC="freshsense/<TEAMCODE>/tag/C-001" uvicorn main:app --port 
 ```bash
 cd frontend && npm install && npm run dev
 ```
-Open http://localhost:5173 → **🔄 Reset demo** → **▶ Resume** → **5 min/tick** → **❄️ Compressor fail** on the selected truck (or **🔥 Leave out of cold** for 2–8 h). Use **🧪 Test Lab** to run the held-out cases or your own readings.
+Open http://localhost:5173. The **Shipment** page opens first:
+1. Pick a demo preset (**Clean run**, **Compressor fails**, **Too late to sell**) or fill in the form: product, packed hours ago, printed expiry, origin hub, destination city, vehicle, disruptions.
+2. Click **Dispatch shipment**. The tag's readings play back (temperature from a real reefer shipment, real door/warm-up curves, real accelerometer shocks).
+3. On arrival you see the **printed label vs real shelf life**, and every restaurant, dark store and food bank in the city marked accepts/rejects. The crate is routed to the best one.
+
+The live fleet simulation is still under **Overview / Crates / Dispatch** (Resume, then trigger incidents from the bottom dock). **Test lab** runs the held-out cases or your own readings.
 
 **Tests:** `cd backend && python -m pytest -q` · **Scorecard:** `cd backend && python run_testcases.py`
 **Rebuild the model from raw data:** see [docs/DATA.md](docs/DATA.md) (`python -I backend/calibration/build.py`).
@@ -37,10 +42,10 @@ Open http://localhost:5173 → **🔄 Reset demo** → **▶ Resume** → **5 mi
 | Folder | What |
 |---|---|
 | `backend/calibration/` | raw public datasets → fitted parameters, gas model, replay traces, test cases |
-| `backend/` | FastAPI: calibrated freshness model, gas fusion, data-driven simulator, redirect rules, prediction API, analytics |
+| `backend/` | FastAPI: calibrated freshness model, gas fusion, shipment journeys (`shipment.py`), data-driven fleet simulator, redirect rules, prediction API, analytics |
 | `backend/testcases/`, `backend/examples/` | held-out real cases + example inputs with documented outputs |
 | `data/processed/` | real temperature traces, event curves and e-nose replay library (generated) |
-| `frontend/` | React dashboard: live map, FIFO vs FEFO, control panel, journey report, analytics, Test Lab |
+| `frontend/` | React + TypeScript dashboard (team's Figma design): Shipment journey, fleet simulation, analytics, Test lab |
 | `firmware/wokwi/` | ESP32 tag firmware + Wokwi circuit |
 | `notebooks/` | early exploration (4-class classifier on one dataset) |
 | `pitch/` | demo scripts, Q&A sheet, QA checklist |
@@ -48,7 +53,7 @@ Open http://localhost:5173 → **🔄 Reset demo** → **▶ Resume** → **5 mi
 
 **Pitch deck:** https://claude.ai/artifact/Topph2cTRBxW16DvgFd4yV (private until shared from its Share menu)
 
-Map © OpenStreetMap contributors. Datasets: see docs/DATA.md (CC BY 4.0 / public domain).
+Datasets: see docs/DATA.md (CC BY 4.0 / public domain).
 
 ## Team
 _Add names here._

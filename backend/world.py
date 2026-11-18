@@ -606,6 +606,8 @@ class World:
             "original_destination_id": c.original_destination_id,
             "redirected": c.redirected, "redirect_reason": c.redirect_reason,
             "eta_min": eta, "is_live_tag": c.id == C.LIVE_TAG_ID,
+            "warehouse_id": c.warehouse_id or (self.trucks[c.truck_id].origin_id if c.truck_id else "WH-1"),
+            "delivered": c.delivered, "delivered_to": c.delivered_to, "discarded": c.discarded,
             "heat_active": bool(c.heat and (c.heat.end is None or self.now < c.heat.end)),
             "lat": round(lat, 5), "lng": round(lng, 5),
         }
@@ -622,6 +624,8 @@ class World:
             "route_points": [[round(t.lat, 5), round(t.lng, 5)]]
                             + [[LOCATIONS[s["location_id"]]["lat"], LOCATIONS[s["location_id"]]["lng"]] for s in t.stops],
             "crate_ids": [c.id for c in self.crates.values() if c.truck_id == t.id],
+            "origin_id": t.origin_id,
+            "extra_loss_h": round(t.live_extra_loss_h, 2), "excursions": t.live_excursions,
         }
 
     def to_state(self):
@@ -646,4 +650,5 @@ class World:
             "alerts": self.alerts[:30], "new_alerts": self.new_alerts,
             "redirects": self.redirects[:20], "new_redirects": self.new_redirects,
             "deliveries": self.deliveries[:20], "impact": dict(self.impact),
+            "archive": [self.crate_dict(c) for c in list(self.archive.values())[-20:]][::-1],
         }

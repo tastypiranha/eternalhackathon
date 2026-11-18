@@ -1,0 +1,1290 @@
+{
+ "_note": "Demo network (no public data): origin hubs and destination-city locations with demand and acceptance rules. Coordinates are real neighbourhoods; businesses are illustrative.",
+ "highway_road_factor": 1.25,
+ "highway_speed_kmh": 45,
+ "city_road_factor": 1.3,
+ "city_speed_kmh": 15,
+ "origins": [
+  {
+   "id": "ORG-NSK",
+   "name": "Nashik farm cluster",
+   "state": "Maharashtra",
+   "lat": 19.9975,
+   "lng": 73.7898,
+   "products": [
+    "greens",
+    "strawberries",
+    "dairy"
+   ]
+  },
+  {
+   "id": "ORG-MBW",
+   "name": "Mahabaleshwar strawberry farms",
+   "state": "Maharashtra",
+   "lat": 17.9237,
+   "lng": 73.6586,
+   "products": [
+    "strawberries"
+   ]
+  },
+  {
+   "id": "ORG-OTY",
+   "name": "Ooty hill farms",
+   "state": "Tamil Nadu",
+   "lat": 11.4064,
+   "lng": 76.6932,
+   "products": [
+    "greens",
+    "strawberries"
+   ]
+  },
+  {
+   "id": "ORG-NMK",
+   "name": "Namakkal poultry hub",
+   "state": "Tamil Nadu",
+   "lat": 11.2189,
+   "lng": 78.1674,
+   "products": [
+    "chicken"
+   ]
+  },
+  {
+   "id": "ORG-ANA",
+   "name": "Anand dairy cooperative",
+   "state": "Gujarat",
+   "lat": 22.5645,
+   "lng": 72.9289,
+   "products": [
+    "dairy"
+   ]
+  },
+  {
+   "id": "ORG-KLR",
+   "name": "Kolar vegetable belt",
+   "state": "Karnataka",
+   "lat": 13.136,
+   "lng": 78.1292,
+   "products": [
+    "greens",
+    "dairy",
+    "chicken"
+   ]
+  },
+  {
+   "id": "ORG-HSK",
+   "name": "Hoskote processing park",
+   "state": "Karnataka",
+   "lat": 13.0707,
+   "lng": 77.7982,
+   "products": [
+    "chicken",
+    "dairy",
+    "greens",
+    "strawberries",
+    "beef"
+   ]
+  }
+ ],
+ "cities": [
+  {
+   "id": "BLR",
+   "name": "Bengaluru",
+   "warehouse_id": "WH-1",
+   "locations": [
+    {
+     "id": "WH-1",
+     "name": "Hyperpure Warehouse – Hoskote (demo)",
+     "type": "warehouse",
+     "area": "Hoskote",
+     "lat": 13.0707,
+     "lng": 77.7982,
+     "min_hours_needed": null,
+     "has_cold_room": true,
+     "demand_kg_per_day": {
+      "chicken": 0,
+      "dairy": 0,
+      "greens": 0,
+      "strawberries": 0,
+      "beef": 0
+     }
+    },
+    {
+     "id": "WH-2",
+     "name": "Hyperpure Warehouse – Bommasandra (demo)",
+     "type": "warehouse",
+     "area": "Bommasandra",
+     "lat": 12.818,
+     "lng": 77.695,
+     "min_hours_needed": null,
+     "has_cold_room": true,
+     "demand_kg_per_day": {
+      "chicken": 0,
+      "dairy": 0,
+      "greens": 0,
+      "strawberries": 0,
+      "beef": 0
+     }
+    },
+    {
+     "id": "DS-01",
+     "name": "Blinkit Dark Store – Koramangala (demo)",
+     "type": "dark_store",
+     "area": "Koramangala",
+     "lat": 12.9352,
+     "lng": 77.6245,
+     "min_hours_needed": 8,
+     "has_cold_room": false,
+     "demand_kg_per_day": {
+      "chicken": 40,
+      "dairy": 60,
+      "greens": 30,
+      "strawberries": 15,
+      "beef": 10
+     }
+    },
+    {
+     "id": "DS-02",
+     "name": "Blinkit Dark Store – Indiranagar (demo)",
+     "type": "dark_store",
+     "area": "Indiranagar",
+     "lat": 12.9784,
+     "lng": 77.6408,
+     "min_hours_needed": 8,
+     "has_cold_room": false,
+     "demand_kg_per_day": {
+      "chicken": 35,
+      "dairy": 50,
+      "greens": 25,
+      "strawberries": 15,
+      "beef": 10
+     }
+    },
+    {
+     "id": "DS-03",
+     "name": "Blinkit Dark Store – HSR Layout (demo)",
+     "type": "dark_store",
+     "area": "HSR Layout",
+     "lat": 12.9116,
+     "lng": 77.6389,
+     "min_hours_needed": 8,
+     "has_cold_room": false,
+     "demand_kg_per_day": {
+      "chicken": 30,
+      "dairy": 55,
+      "greens": 30,
+      "strawberries": 15,
+      "beef": 10
+     }
+    },
+    {
+     "id": "DS-04",
+     "name": "Blinkit Dark Store – Whitefield (demo)",
+     "type": "dark_store",
+     "area": "Whitefield",
+     "lat": 12.9698,
+     "lng": 77.75,
+     "min_hours_needed": 8,
+     "has_cold_room": false,
+     "demand_kg_per_day": {
+      "chicken": 45,
+      "dairy": 60,
+      "greens": 20,
+      "strawberries": 15,
+      "beef": 10
+     }
+    },
+    {
+     "id": "DS-05",
+     "name": "Blinkit Dark Store – Jayanagar (demo)",
+     "type": "dark_store",
+     "area": "Jayanagar",
+     "lat": 12.925,
+     "lng": 77.5938,
+     "min_hours_needed": 8,
+     "has_cold_room": false,
+     "demand_kg_per_day": {
+      "chicken": 25,
+      "dairy": 45,
+      "greens": 35,
+      "strawberries": 15,
+      "beef": 10
+     }
+    },
+    {
+     "id": "DS-06",
+     "name": "Blinkit Dark Store – Malleshwaram (demo)",
+     "type": "dark_store",
+     "area": "Malleshwaram",
+     "lat": 13.0035,
+     "lng": 77.571,
+     "min_hours_needed": 8,
+     "has_cold_room": false,
+     "demand_kg_per_day": {
+      "chicken": 20,
+      "dairy": 40,
+      "greens": 30,
+      "strawberries": 15,
+      "beef": 10
+     }
+    },
+    {
+     "id": "DS-07",
+     "name": "Blinkit Dark Store – Hebbal (demo)",
+     "type": "dark_store",
+     "area": "Hebbal",
+     "lat": 13.0358,
+     "lng": 77.597,
+     "min_hours_needed": 8,
+     "has_cold_room": false,
+     "demand_kg_per_day": {
+      "chicken": 30,
+      "dairy": 35,
+      "greens": 15,
+      "strawberries": 15,
+      "beef": 10
+     }
+    },
+    {
+     "id": "DS-08",
+     "name": "Blinkit Dark Store – Electronic City (demo)",
+     "type": "dark_store",
+     "area": "Electronic City",
+     "lat": 12.8452,
+     "lng": 77.6602,
+     "min_hours_needed": 8,
+     "has_cold_room": false,
+     "demand_kg_per_day": {
+      "chicken": 35,
+      "dairy": 45,
+      "greens": 20,
+      "strawberries": 15,
+      "beef": 10
+     }
+    },
+    {
+     "id": "R-01",
+     "name": "Zomato Partner Restaurant – MG Road (demo)",
+     "type": "restaurant",
+     "area": "MG Road",
+     "lat": 12.9756,
+     "lng": 77.605,
+     "min_hours_needed": 24,
+     "has_cold_room": true,
+     "demand_kg_per_day": {
+      "chicken": 30,
+      "dairy": 20,
+      "greens": 15,
+      "strawberries": 5,
+      "beef": 10
+     }
+    },
+    {
+     "id": "R-02",
+     "name": "Zomato Partner Restaurant – Marathahalli (demo)",
+     "type": "restaurant",
+     "area": "Marathahalli",
+     "lat": 12.9591,
+     "lng": 77.6974,
+     "min_hours_needed": 24,
+     "has_cold_room": true,
+     "demand_kg_per_day": {
+      "chicken": 25,
+      "dairy": 15,
+      "greens": 10,
+      "strawberries": 5,
+      "beef": 10
+     }
+    },
+    {
+     "id": "R-03",
+     "name": "Zomato Partner Restaurant – Bellandur (demo)",
+     "type": "restaurant",
+     "area": "Bellandur",
+     "lat": 12.926,
+     "lng": 77.6762,
+     "min_hours_needed": 24,
+     "has_cold_room": true,
+     "demand_kg_per_day": {
+      "chicken": 20,
+      "dairy": 20,
+      "greens": 15,
+      "strawberries": 5,
+      "beef": 10
+     }
+    },
+    {
+     "id": "R-04",
+     "name": "Zomato Partner Restaurant – BTM Layout (demo)",
+     "type": "restaurant",
+     "area": "BTM Layout",
+     "lat": 12.9166,
+     "lng": 77.6101,
+     "min_hours_needed": 24,
+     "has_cold_room": true,
+     "demand_kg_per_day": {
+      "chicken": 25,
+      "dairy": 10,
+      "greens": 20,
+      "strawberries": 5,
+      "beef": 10
+     }
+    },
+    {
+     "id": "R-05",
+     "name": "Zomato Partner Restaurant – JP Nagar (demo)",
+     "type": "restaurant",
+     "area": "JP Nagar",
+     "lat": 12.9063,
+     "lng": 77.5857,
+     "min_hours_needed": 24,
+     "has_cold_room": true,
+     "demand_kg_per_day": {
+      "chicken": 30,
+      "dairy": 15,
+      "greens": 10,
+      "strawberries": 5,
+      "beef": 10
+     }
+    },
+    {
+     "id": "R-06",
+     "name": "Zomato Partner Restaurant – Rajajinagar (demo)",
+     "type": "restaurant",
+     "area": "Rajajinagar",
+     "lat": 12.991,
+     "lng": 77.5525,
+     "min_hours_needed": 24,
+     "has_cold_room": true,
+     "demand_kg_per_day": {
+      "chicken": 40,
+      "dairy": 15,
+      "greens": 10,
+      "strawberries": 5,
+      "beef": 10
+     }
+    },
+    {
+     "id": "R-07",
+     "name": "Zomato Partner Restaurant – Yelahanka (demo)",
+     "type": "restaurant",
+     "area": "Yelahanka",
+     "lat": 13.1007,
+     "lng": 77.5963,
+     "min_hours_needed": 24,
+     "has_cold_room": true,
+     "demand_kg_per_day": {
+      "chicken": 20,
+      "dairy": 25,
+      "greens": 10,
+      "strawberries": 5,
+      "beef": 10
+     }
+    },
+    {
+     "id": "R-08",
+     "name": "Zomato Partner Restaurant – Sarjapur Road (demo)",
+     "type": "restaurant",
+     "area": "Sarjapur Road",
+     "lat": 12.901,
+     "lng": 77.686,
+     "min_hours_needed": 24,
+     "has_cold_room": true,
+     "demand_kg_per_day": {
+      "chicken": 25,
+      "dairy": 20,
+      "greens": 15,
+      "strawberries": 5,
+      "beef": 10
+     }
+    },
+    {
+     "id": "R-09",
+     "name": "Zomato Partner Restaurant – KR Puram (demo)",
+     "type": "restaurant",
+     "area": "KR Puram",
+     "lat": 13.0076,
+     "lng": 77.695,
+     "min_hours_needed": 24,
+     "has_cold_room": true,
+     "demand_kg_per_day": {
+      "chicken": 20,
+      "dairy": 15,
+      "greens": 20,
+      "strawberries": 5,
+      "beef": 10
+     }
+    },
+    {
+     "id": "R-10",
+     "name": "Zomato Partner Restaurant – Banashankari (demo)",
+     "type": "restaurant",
+     "area": "Banashankari",
+     "lat": 12.9255,
+     "lng": 77.5468,
+     "min_hours_needed": 24,
+     "has_cold_room": true,
+     "demand_kg_per_day": {
+      "chicken": 25,
+      "dairy": 20,
+      "greens": 15,
+      "strawberries": 5,
+      "beef": 10
+     }
+    },
+    {
+     "id": "FB-01",
+     "name": "Feeding India Partner – Shivajinagar (demo)",
+     "type": "food_bank",
+     "area": "Shivajinagar",
+     "lat": 12.9857,
+     "lng": 77.6057,
+     "min_hours_needed": 2,
+     "has_cold_room": false,
+     "demand_kg_per_day": {
+      "chicken": 50,
+      "dairy": 50,
+      "greens": 50,
+      "strawberries": 20,
+      "beef": 10
+     }
+    },
+    {
+     "id": "FB-02",
+     "name": "Feeding India Partner – Yeshwanthpur (demo)",
+     "type": "food_bank",
+     "area": "Yeshwanthpur",
+     "lat": 13.0285,
+     "lng": 77.5409,
+     "min_hours_needed": 2,
+     "has_cold_room": false,
+     "demand_kg_per_day": {
+      "chicken": 50,
+      "dairy": 50,
+      "greens": 50,
+      "strawberries": 20,
+      "beef": 10
+     }
+    }
+   ]
+  },
+  {
+   "id": "MUM",
+   "name": "Mumbai",
+   "warehouse_id": "MUM-WH01",
+   "locations": [
+    {
+     "id": "MUM-WH01",
+     "name": "Hyperpure Warehouse – Bhiwandi (demo)",
+     "type": "warehouse",
+     "area": "Bhiwandi",
+     "lat": 19.2813,
+     "lng": 73.0483,
+     "min_hours_needed": null,
+     "has_cold_room": true,
+     "demand_kg_per_day": {}
+    },
+    {
+     "id": "MUM-R01",
+     "name": "Zomato Partner Restaurant – Bandra (demo)",
+     "type": "restaurant",
+     "area": "Bandra",
+     "lat": 19.0596,
+     "lng": 72.8295,
+     "min_hours_needed": 24,
+     "has_cold_room": true,
+     "demand_kg_per_day": {
+      "chicken": 24,
+      "dairy": 16,
+      "greens": 23,
+      "strawberries": 5,
+      "beef": 10
+     }
+    },
+    {
+     "id": "MUM-R02",
+     "name": "Zomato Partner Restaurant – Andheri (demo)",
+     "type": "restaurant",
+     "area": "Andheri",
+     "lat": 19.1197,
+     "lng": 72.8468,
+     "min_hours_needed": 24,
+     "has_cold_room": true,
+     "demand_kg_per_day": {
+      "chicken": 28,
+      "dairy": 9,
+      "greens": 15,
+      "strawberries": 6,
+      "beef": 14
+     }
+    },
+    {
+     "id": "MUM-R03",
+     "name": "Zomato Partner Restaurant – Powai (demo)",
+     "type": "restaurant",
+     "area": "Powai",
+     "lat": 19.1176,
+     "lng": 72.906,
+     "min_hours_needed": 24,
+     "has_cold_room": true,
+     "demand_kg_per_day": {
+      "chicken": 13,
+      "dairy": 11,
+      "greens": 8,
+      "strawberries": 7,
+      "beef": 12
+     }
+    },
+    {
+     "id": "MUM-R04",
+     "name": "Zomato Partner Restaurant – Lower Parel (demo)",
+     "type": "restaurant",
+     "area": "Lower Parel",
+     "lat": 18.995,
+     "lng": 72.83,
+     "min_hours_needed": 24,
+     "has_cold_room": true,
+     "demand_kg_per_day": {
+      "chicken": 11,
+      "dairy": 24,
+      "greens": 23,
+      "strawberries": 6,
+      "beef": 11
+     }
+    },
+    {
+     "id": "MUM-R05",
+     "name": "Zomato Partner Restaurant – Colaba (demo)",
+     "type": "restaurant",
+     "area": "Colaba",
+     "lat": 18.9067,
+     "lng": 72.8147,
+     "min_hours_needed": 24,
+     "has_cold_room": true,
+     "demand_kg_per_day": {
+      "chicken": 15,
+      "dairy": 6,
+      "greens": 16,
+      "strawberries": 2,
+      "beef": 6
+     }
+    },
+    {
+     "id": "MUM-R06",
+     "name": "Zomato Partner Restaurant – Juhu (demo)",
+     "type": "restaurant",
+     "area": "Juhu",
+     "lat": 19.1075,
+     "lng": 72.8263,
+     "min_hours_needed": 24,
+     "has_cold_room": true,
+     "demand_kg_per_day": {
+      "chicken": 17,
+      "dairy": 7,
+      "greens": 14,
+      "strawberries": 5,
+      "beef": 14
+     }
+    },
+    {
+     "id": "MUM-R07",
+     "name": "Zomato Partner Restaurant – Malad (demo)",
+     "type": "restaurant",
+     "area": "Malad",
+     "lat": 19.1874,
+     "lng": 72.8484,
+     "min_hours_needed": 24,
+     "has_cold_room": true,
+     "demand_kg_per_day": {
+      "chicken": 26,
+      "dairy": 18,
+      "greens": 15,
+      "strawberries": 6,
+      "beef": 9
+     }
+    },
+    {
+     "id": "MUM-R08",
+     "name": "Zomato Partner Restaurant – Thane (demo)",
+     "type": "restaurant",
+     "area": "Thane",
+     "lat": 19.2183,
+     "lng": 72.9781,
+     "min_hours_needed": 24,
+     "has_cold_room": true,
+     "demand_kg_per_day": {
+      "chicken": 18,
+      "dairy": 24,
+      "greens": 24,
+      "strawberries": 7,
+      "beef": 12
+     }
+    },
+    {
+     "id": "MUM-R09",
+     "name": "Zomato Partner Restaurant – Chembur (demo)",
+     "type": "restaurant",
+     "area": "Chembur",
+     "lat": 19.0522,
+     "lng": 72.9005,
+     "min_hours_needed": 24,
+     "has_cold_room": true,
+     "demand_kg_per_day": {
+      "chicken": 19,
+      "dairy": 10,
+      "greens": 11,
+      "strawberries": 2,
+      "beef": 13
+     }
+    },
+    {
+     "id": "MUM-R10",
+     "name": "Zomato Partner Restaurant – Vashi (demo)",
+     "type": "restaurant",
+     "area": "Vashi",
+     "lat": 19.0771,
+     "lng": 72.9986,
+     "min_hours_needed": 24,
+     "has_cold_room": true,
+     "demand_kg_per_day": {
+      "chicken": 22,
+      "dairy": 21,
+      "greens": 13,
+      "strawberries": 8,
+      "beef": 14
+     }
+    },
+    {
+     "id": "MUM-DS01",
+     "name": "Blinkit Dark Store – Goregaon (demo)",
+     "type": "dark_store",
+     "area": "Goregaon",
+     "lat": 19.1663,
+     "lng": 72.8526,
+     "min_hours_needed": 8,
+     "has_cold_room": false,
+     "demand_kg_per_day": {
+      "chicken": 14,
+      "dairy": 33,
+      "greens": 37,
+      "strawberries": 14,
+      "beef": 16
+     }
+    },
+    {
+     "id": "MUM-DS02",
+     "name": "Blinkit Dark Store – Dadar (demo)",
+     "type": "dark_store",
+     "area": "Dadar",
+     "lat": 19.0178,
+     "lng": 72.8478,
+     "min_hours_needed": 8,
+     "has_cold_room": false,
+     "demand_kg_per_day": {
+      "chicken": 31,
+      "dairy": 24,
+      "greens": 29,
+      "strawberries": 20,
+      "beef": 7
+     }
+    },
+    {
+     "id": "MUM-DS03",
+     "name": "Blinkit Dark Store – Ghatkopar (demo)",
+     "type": "dark_store",
+     "area": "Ghatkopar",
+     "lat": 19.086,
+     "lng": 72.9081,
+     "min_hours_needed": 8,
+     "has_cold_room": false,
+     "demand_kg_per_day": {
+      "chicken": 18,
+      "dairy": 40,
+      "greens": 39,
+      "strawberries": 20,
+      "beef": 5
+     }
+    },
+    {
+     "id": "MUM-DS04",
+     "name": "Blinkit Dark Store – Borivali (demo)",
+     "type": "dark_store",
+     "area": "Borivali",
+     "lat": 19.2307,
+     "lng": 72.8567,
+     "min_hours_needed": 8,
+     "has_cold_room": false,
+     "demand_kg_per_day": {
+      "chicken": 24,
+      "dairy": 26,
+      "greens": 12,
+      "strawberries": 20,
+      "beef": 6
+     }
+    },
+    {
+     "id": "MUM-FB01",
+     "name": "Feeding India Partner – Kurla (demo)",
+     "type": "food_bank",
+     "area": "Kurla",
+     "lat": 19.0726,
+     "lng": 72.8845,
+     "min_hours_needed": 2,
+     "has_cold_room": false,
+     "demand_kg_per_day": {
+      "chicken": 50,
+      "dairy": 50,
+      "greens": 50,
+      "strawberries": 20,
+      "beef": 30
+     }
+    }
+   ]
+  },
+  {
+   "id": "HYD",
+   "name": "Hyderabad",
+   "warehouse_id": "HYD-WH01",
+   "locations": [
+    {
+     "id": "HYD-WH01",
+     "name": "Hyperpure Warehouse – Shamshabad (demo)",
+     "type": "warehouse",
+     "area": "Shamshabad",
+     "lat": 17.2403,
+     "lng": 78.4294,
+     "min_hours_needed": null,
+     "has_cold_room": true,
+     "demand_kg_per_day": {}
+    },
+    {
+     "id": "HYD-R01",
+     "name": "Zomato Partner Restaurant – Banjara Hills (demo)",
+     "type": "restaurant",
+     "area": "Banjara Hills",
+     "lat": 17.4156,
+     "lng": 78.4347,
+     "min_hours_needed": 24,
+     "has_cold_room": true,
+     "demand_kg_per_day": {
+      "chicken": 27,
+      "dairy": 14,
+      "greens": 9,
+      "strawberries": 6,
+      "beef": 6
+     }
+    },
+    {
+     "id": "HYD-R02",
+     "name": "Zomato Partner Restaurant – Jubilee Hills (demo)",
+     "type": "restaurant",
+     "area": "Jubilee Hills",
+     "lat": 17.4326,
+     "lng": 78.4071,
+     "min_hours_needed": 24,
+     "has_cold_room": true,
+     "demand_kg_per_day": {
+      "chicken": 29,
+      "dairy": 8,
+      "greens": 14,
+      "strawberries": 3,
+      "beef": 7
+     }
+    },
+    {
+     "id": "HYD-R03",
+     "name": "Zomato Partner Restaurant – Gachibowli (demo)",
+     "type": "restaurant",
+     "area": "Gachibowli",
+     "lat": 17.4401,
+     "lng": 78.3489,
+     "min_hours_needed": 24,
+     "has_cold_room": true,
+     "demand_kg_per_day": {
+      "chicken": 39,
+      "dairy": 20,
+      "greens": 11,
+      "strawberries": 7,
+      "beef": 7
+     }
+    },
+    {
+     "id": "HYD-R04",
+     "name": "Zomato Partner Restaurant – HITEC City (demo)",
+     "type": "restaurant",
+     "area": "HITEC City",
+     "lat": 17.4435,
+     "lng": 78.3772,
+     "min_hours_needed": 24,
+     "has_cold_room": true,
+     "demand_kg_per_day": {
+      "chicken": 22,
+      "dairy": 21,
+      "greens": 18,
+      "strawberries": 3,
+      "beef": 16
+     }
+    },
+    {
+     "id": "HYD-R05",
+     "name": "Zomato Partner Restaurant – Kondapur (demo)",
+     "type": "restaurant",
+     "area": "Kondapur",
+     "lat": 17.46,
+     "lng": 78.364,
+     "min_hours_needed": 24,
+     "has_cold_room": true,
+     "demand_kg_per_day": {
+      "chicken": 16,
+      "dairy": 11,
+      "greens": 20,
+      "strawberries": 4,
+      "beef": 8
+     }
+    },
+    {
+     "id": "HYD-R06",
+     "name": "Zomato Partner Restaurant – Madhapur (demo)",
+     "type": "restaurant",
+     "area": "Madhapur",
+     "lat": 17.4483,
+     "lng": 78.3915,
+     "min_hours_needed": 24,
+     "has_cold_room": true,
+     "demand_kg_per_day": {
+      "chicken": 12,
+      "dairy": 8,
+      "greens": 16,
+      "strawberries": 3,
+      "beef": 11
+     }
+    },
+    {
+     "id": "HYD-R07",
+     "name": "Zomato Partner Restaurant – Begumpet (demo)",
+     "type": "restaurant",
+     "area": "Begumpet",
+     "lat": 17.4447,
+     "lng": 78.4664,
+     "min_hours_needed": 24,
+     "has_cold_room": true,
+     "demand_kg_per_day": {
+      "chicken": 21,
+      "dairy": 14,
+      "greens": 23,
+      "strawberries": 5,
+      "beef": 11
+     }
+    },
+    {
+     "id": "HYD-R08",
+     "name": "Zomato Partner Restaurant – Secunderabad (demo)",
+     "type": "restaurant",
+     "area": "Secunderabad",
+     "lat": 17.4399,
+     "lng": 78.4983,
+     "min_hours_needed": 24,
+     "has_cold_room": true,
+     "demand_kg_per_day": {
+      "chicken": 36,
+      "dairy": 9,
+      "greens": 9,
+      "strawberries": 7,
+      "beef": 14
+     }
+    },
+    {
+     "id": "HYD-R09",
+     "name": "Zomato Partner Restaurant – Kukatpally (demo)",
+     "type": "restaurant",
+     "area": "Kukatpally",
+     "lat": 17.4849,
+     "lng": 78.4138,
+     "min_hours_needed": 24,
+     "has_cold_room": true,
+     "demand_kg_per_day": {
+      "chicken": 17,
+      "dairy": 9,
+      "greens": 19,
+      "strawberries": 8,
+      "beef": 6
+     }
+    },
+    {
+     "id": "HYD-R10",
+     "name": "Zomato Partner Restaurant – Ameerpet (demo)",
+     "type": "restaurant",
+     "area": "Ameerpet",
+     "lat": 17.4375,
+     "lng": 78.4482,
+     "min_hours_needed": 24,
+     "has_cold_room": true,
+     "demand_kg_per_day": {
+      "chicken": 39,
+      "dairy": 22,
+      "greens": 17,
+      "strawberries": 5,
+      "beef": 5
+     }
+    },
+    {
+     "id": "HYD-DS01",
+     "name": "Blinkit Dark Store – Manikonda (demo)",
+     "type": "dark_store",
+     "area": "Manikonda",
+     "lat": 17.405,
+     "lng": 78.3866,
+     "min_hours_needed": 8,
+     "has_cold_room": false,
+     "demand_kg_per_day": {
+      "chicken": 16,
+      "dairy": 78,
+      "greens": 17,
+      "strawberries": 19,
+      "beef": 7
+     }
+    },
+    {
+     "id": "HYD-DS02",
+     "name": "Blinkit Dark Store – Somajiguda (demo)",
+     "type": "dark_store",
+     "area": "Somajiguda",
+     "lat": 17.4239,
+     "lng": 78.4585,
+     "min_hours_needed": 8,
+     "has_cold_room": false,
+     "demand_kg_per_day": {
+      "chicken": 49,
+      "dairy": 56,
+      "greens": 19,
+      "strawberries": 9,
+      "beef": 13
+     }
+    },
+    {
+     "id": "HYD-DS03",
+     "name": "Blinkit Dark Store – Miyapur (demo)",
+     "type": "dark_store",
+     "area": "Miyapur",
+     "lat": 17.4968,
+     "lng": 78.3614,
+     "min_hours_needed": 8,
+     "has_cold_room": false,
+     "demand_kg_per_day": {
+      "chicken": 17,
+      "dairy": 34,
+      "greens": 27,
+      "strawberries": 21,
+      "beef": 11
+     }
+    },
+    {
+     "id": "HYD-DS04",
+     "name": "Blinkit Dark Store – LB Nagar (demo)",
+     "type": "dark_store",
+     "area": "LB Nagar",
+     "lat": 17.3457,
+     "lng": 78.5522,
+     "min_hours_needed": 8,
+     "has_cold_room": false,
+     "demand_kg_per_day": {
+      "chicken": 26,
+      "dairy": 75,
+      "greens": 16,
+      "strawberries": 6,
+      "beef": 7
+     }
+    },
+    {
+     "id": "HYD-FB01",
+     "name": "Feeding India Partner – Mehdipatnam (demo)",
+     "type": "food_bank",
+     "area": "Mehdipatnam",
+     "lat": 17.395,
+     "lng": 78.44,
+     "min_hours_needed": 2,
+     "has_cold_room": false,
+     "demand_kg_per_day": {
+      "chicken": 50,
+      "dairy": 50,
+      "greens": 50,
+      "strawberries": 20,
+      "beef": 30
+     }
+    }
+   ]
+  },
+  {
+   "id": "CHE",
+   "name": "Chennai",
+   "warehouse_id": "CHE-WH01",
+   "locations": [
+    {
+     "id": "CHE-WH01",
+     "name": "Hyperpure Warehouse – Ambattur (demo)",
+     "type": "warehouse",
+     "area": "Ambattur",
+     "lat": 13.1143,
+     "lng": 80.1548,
+     "min_hours_needed": null,
+     "has_cold_room": true,
+     "demand_kg_per_day": {}
+    },
+    {
+     "id": "CHE-R01",
+     "name": "Zomato Partner Restaurant – T Nagar (demo)",
+     "type": "restaurant",
+     "area": "T Nagar",
+     "lat": 13.0418,
+     "lng": 80.2341,
+     "min_hours_needed": 24,
+     "has_cold_room": true,
+     "demand_kg_per_day": {
+      "chicken": 23,
+      "dairy": 7,
+      "greens": 9,
+      "strawberries": 4,
+      "beef": 11
+     }
+    },
+    {
+     "id": "CHE-R02",
+     "name": "Zomato Partner Restaurant – Adyar (demo)",
+     "type": "restaurant",
+     "area": "Adyar",
+     "lat": 13.0012,
+     "lng": 80.2565,
+     "min_hours_needed": 24,
+     "has_cold_room": true,
+     "demand_kg_per_day": {
+      "chicken": 14,
+      "dairy": 13,
+      "greens": 22,
+      "strawberries": 8,
+      "beef": 12
+     }
+    },
+    {
+     "id": "CHE-R03",
+     "name": "Zomato Partner Restaurant – Anna Nagar (demo)",
+     "type": "restaurant",
+     "area": "Anna Nagar",
+     "lat": 13.085,
+     "lng": 80.2101,
+     "min_hours_needed": 24,
+     "has_cold_room": true,
+     "demand_kg_per_day": {
+      "chicken": 31,
+      "dairy": 17,
+      "greens": 9,
+      "strawberries": 2,
+      "beef": 4
+     }
+    },
+    {
+     "id": "CHE-R04",
+     "name": "Zomato Partner Restaurant – Velachery (demo)",
+     "type": "restaurant",
+     "area": "Velachery",
+     "lat": 12.9815,
+     "lng": 80.218,
+     "min_hours_needed": 24,
+     "has_cold_room": true,
+     "demand_kg_per_day": {
+      "chicken": 37,
+      "dairy": 19,
+      "greens": 23,
+      "strawberries": 2,
+      "beef": 12
+     }
+    },
+    {
+     "id": "CHE-R05",
+     "name": "Zomato Partner Restaurant – Nungambakkam (demo)",
+     "type": "restaurant",
+     "area": "Nungambakkam",
+     "lat": 13.0569,
+     "lng": 80.2425,
+     "min_hours_needed": 24,
+     "has_cold_room": true,
+     "demand_kg_per_day": {
+      "chicken": 24,
+      "dairy": 19,
+      "greens": 12,
+      "strawberries": 8,
+      "beef": 5
+     }
+    },
+    {
+     "id": "CHE-R06",
+     "name": "Zomato Partner Restaurant – Mylapore (demo)",
+     "type": "restaurant",
+     "area": "Mylapore",
+     "lat": 13.0368,
+     "lng": 80.2676,
+     "min_hours_needed": 24,
+     "has_cold_room": true,
+     "demand_kg_per_day": {
+      "chicken": 26,
+      "dairy": 19,
+      "greens": 22,
+      "strawberries": 6,
+      "beef": 12
+     }
+    },
+    {
+     "id": "CHE-R07",
+     "name": "Zomato Partner Restaurant – Thoraipakkam (demo)",
+     "type": "restaurant",
+     "area": "Thoraipakkam",
+     "lat": 12.9416,
+     "lng": 80.2362,
+     "min_hours_needed": 24,
+     "has_cold_room": true,
+     "demand_kg_per_day": {
+      "chicken": 34,
+      "dairy": 22,
+      "greens": 12,
+      "strawberries": 6,
+      "beef": 15
+     }
+    },
+    {
+     "id": "CHE-R08",
+     "name": "Zomato Partner Restaurant – Besant Nagar (demo)",
+     "type": "restaurant",
+     "area": "Besant Nagar",
+     "lat": 13.0003,
+     "lng": 80.2667,
+     "min_hours_needed": 24,
+     "has_cold_room": true,
+     "demand_kg_per_day": {
+      "chicken": 36,
+      "dairy": 14,
+      "greens": 20,
+      "strawberries": 7,
+      "beef": 11
+     }
+    },
+    {
+     "id": "CHE-R09",
+     "name": "Zomato Partner Restaurant – Porur (demo)",
+     "type": "restaurant",
+     "area": "Porur",
+     "lat": 13.0382,
+     "lng": 80.1565,
+     "min_hours_needed": 24,
+     "has_cold_room": true,
+     "demand_kg_per_day": {
+      "chicken": 29,
+      "dairy": 13,
+      "greens": 16,
+      "strawberries": 6,
+      "beef": 5
+     }
+    },
+    {
+     "id": "CHE-R10",
+     "name": "Zomato Partner Restaurant – Egmore (demo)",
+     "type": "restaurant",
+     "area": "Egmore",
+     "lat": 13.0732,
+     "lng": 80.2609,
+     "min_hours_needed": 24,
+     "has_cold_room": true,
+     "demand_kg_per_day": {
+      "chicken": 29,
+      "dairy": 24,
+      "greens": 22,
+      "strawberries": 6,
+      "beef": 9
+     }
+    },
+    {
+     "id": "CHE-DS01",
+     "name": "Blinkit Dark Store – Guindy (demo)",
+     "type": "dark_store",
+     "area": "Guindy",
+     "lat": 13.0067,
+     "lng": 80.2206,
+     "min_hours_needed": 8,
+     "has_cold_room": false,
+     "demand_kg_per_day": {
+      "chicken": 45,
+      "dairy": 55,
+      "greens": 23,
+      "strawberries": 21,
+      "beef": 5
+     }
+    },
+    {
+     "id": "CHE-DS02",
+     "name": "Blinkit Dark Store – Kodambakkam (demo)",
+     "type": "dark_store",
+     "area": "Kodambakkam",
+     "lat": 13.0521,
+     "lng": 80.2255,
+     "min_hours_needed": 8,
+     "has_cold_room": false,
+     "demand_kg_per_day": {
+      "chicken": 46,
+      "dairy": 22,
+      "greens": 28,
+      "strawberries": 15,
+      "beef": 7
+     }
+    },
+    {
+     "id": "CHE-DS03",
+     "name": "Blinkit Dark Store – Tambaram (demo)",
+     "type": "dark_store",
+     "area": "Tambaram",
+     "lat": 12.9249,
+     "lng": 80.1,
+     "min_hours_needed": 8,
+     "has_cold_room": false,
+     "demand_kg_per_day": {
+      "chicken": 43,
+      "dairy": 50,
+      "greens": 28,
+      "strawberries": 23,
+      "beef": 7
+     }
+    },
+    {
+     "id": "CHE-DS04",
+     "name": "Blinkit Dark Store – Perungudi (demo)",
+     "type": "dark_store",
+     "area": "Perungudi",
+     "lat": 12.9654,
+     "lng": 80.2461,
+     "min_hours_needed": 8,
+     "has_cold_room": false,
+     "demand_kg_per_day": {
+      "chicken": 14,
+      "dairy": 38,
+      "greens": 30,
+      "strawberries": 10,
+      "beef": 6
+     }
+    },
+    {
+     "id": "CHE-FB01",
+     "name": "Feeding India Partner – Royapettah (demo)",
+     "type": "food_bank",
+     "area": "Royapettah",
+     "lat": 13.054,
+     "lng": 80.264,
+     "min_hours_needed": 2,
+     "has_cold_room": false,
+     "demand_kg_per_day": {
+      "chicken": 50,
+      "dairy": 50,
+      "greens": 50,
+      "strawberries": 20,
+      "beef": 30
+     }
+    }
+   ]
+  }
+ ]
+}

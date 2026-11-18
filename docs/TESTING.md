@@ -69,7 +69,38 @@ What you should see when you change inputs:
 - **Product order** at the same conditions: chicken spoils fastest, then strawberries, then greens ≈ beef, and dairy slowest. This follows USDA FoodKeeper.
 - **Hours left below what the planned stop needs** (restaurant 24 h, dark store 8 h, food bank 2 h, on arrival) → REDIRECT or DONATE.
 
-## 3. The live simulation
+## 3. Shipment journeys
+`POST http://localhost:8000/api/shipments/simulate` (the **Shipment** page uses this). Options for the form: `GET /api/shipments/options`.
+
+**Input**
+```json
+{
+  "product": "chicken",                 // beef | chicken | dairy | greens | strawberries
+  "origin_id": "ORG-NMK",               // see /api/shipments/options → origins
+  "destination_city": "BLR",            // BLR | MUM | HYD | CHE
+  "vehicle": "reefer",                  // reefer (real shipment trace) | insulated (real warm-up curve)
+  "packed_hours_ago": 44,
+  "printed_expiry_days": 4,             // optional: what the label says
+  "planned_outlet_id": "R-06",          // optional: otherwise FreshSense assigns the best outlet
+  "incidents": [                        // optional
+    {"type": "compressor", "at_h": 2, "minutes": 300},
+    {"type": "door", "at_h": 5},
+    {"type": "shock", "at_h": 7},
+    {"type": "dock", "minutes": 90}
+  ]
+}
+```
+**Output:** `timeline` (a reading every 10 min: temp, humidity, shock g, bacteria, hours left, stage), `events` (the tag log), `arrival` (status, hours left vs `label_hours_left`, heat loss, shocks), `candidates` (every outlet in the city: travel, hours on arrival, needs, accepts, score) and `decision` (DELIVER / ASSIGN / REDIRECT / DONATE / DISCARD plus the reason).
+
+**Expected results for the three demo presets** (Shipment page buttons; locked in `backend/tests/test_shipment.py`):
+
+| Preset | Input | Expected decision |
+|---|---|---|
+| Clean run | strawberries, ORG-MBW → BLR, reefer, packed 12 h, label 5 days | **ASSIGN** to an accepting outlet (all 20 outlets accept); real shelf life is above the label |
+| Compressor fails | chicken, ORG-NMK → BLR, reefer, packed 44 h, label 4 days, planned R-06, compressor fails at 2 h for 300 min | **REDIRECT** to a Blinkit dark store (the planned restaurant needs 24 h on arrival; the crate has ~20 h). The label overstates freshness by ~23 h |
+| Too late to sell | the same, packed 54 h, plus 90 min on the arrival dock | **DONATE** to a Feeding India partner (only food banks can take it) |
+
+## 4. The live simulation
 Dashboard → **🔄 Reset demo** → **▶ Resume** → set **5 min/tick** → choose the most urgent crate's truck → **❄️ Compressor fail**.
 - **Expected:** the cargo warms along the real warm-up curve (about +6 °C in 30 min, levelling off near +11 °C). Hours left fall faster. Within about 20–30 s the most urgent crate is **rerouted** on the map. It's also the crate the control panel selects by default.
 - **🔥 Leave out of cold** (choose 2–8 h) does the same for a single crate.
@@ -77,5 +108,5 @@ Dashboard → **🔄 Reset demo** → **▶ Resume** → set **5 min/tick** → 
 
 ## Automated tests
 ```bash
-cd backend && python -m pytest -q      # 17 tests: calibration sanity, model physics, redirect rules, API contract, held-out cases
+cd backend && python -m pytest -q      # 27 tests: calibration, model physics, redirect rules, shipments, API contract, held-out cases
 ```

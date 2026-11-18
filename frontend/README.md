@@ -1,19 +1,20 @@
 # FreshSense dashboard
 
-React + Vite + Tailwind + react-leaflet + recharts. Implements Person B's plan (`02_PERSON_B_FRONTEND.md`).
+React + Vite + Tailwind + TypeScript, based on the team's Figma Make design, wired to the FreshSense backend. Nothing is simulated in the browser: every number comes from the backend API.
 
 ## Run
 ```bash
 npm install
-npm run dev            # http://localhost:5173  (backend must run on :8000)
+npm run dev        # http://localhost:5173 (the backend must run on :8000)
 ```
-`.env` sets `VITE_API_BASE`, `VITE_WS_URL`, and `VITE_USE_MOCK` (`true` = run with `src/mock/state.json` and no backend).
+To use another backend, set `VITE_API_BASE` in `.env` (see `.env.example`). If the backend isn't reachable, the app shows a waiting screen and retries every 3 s.
 
-## Screens
-- **Live Map:** the Eternal network, moving trucks, and routes. A redirect shows as a grey dashed old route, a glowing new route, and a pulsing destination, and the map flies to it.
-- **Right panel:** the redirect and alert feed, and the FIFO vs FreshSense FEFO tables (red ❌ = FIFO would deliver a crate that gets rejected).
-- **Control panel:** heat/shock a crate, door/compressor on a truck, pause/resume, speed, reset, and the 📡 Live tag slider (backup for Wokwi).
-- **Journey drawer:** click any crate, truck popup row, or feed card. Shows the summary, blame line, temperature/humidity/freshness charts (Full journey or This trip), stage table, and excursions.
-- **Crates** tab (cards) and **Analytics** tab (hours lost by truck/stage, impact, benchmark, Model 1 card).
+## Pages
+| Page | What it does | Backend |
+|---|---|---|
+| **Shipment** (default) | Enter a product, packing age, printed expiry, origin hub, destination city, vehicle and disruptions → watch the tag's readings play back → at the destination warehouse, every outlet in the city is checked and the crate is routed to the best one. Includes 3 demo presets | `GET /api/shipments/options`, `POST /api/shipments/simulate` |
+| Overview / Crates / Dispatch / Activity | The live fleet simulation (crates on trucks, FEFO vs FIFO, redirects, journey reports) | `WS /ws`, `GET /api/state`, `GET /api/crates/{id}/journey` |
+| Analytics | Heat loss by truck/stage, impact, the model card (held-out results), the FIFO vs FreshSense benchmark | `GET /api/analytics` |
+| Test lab | Held-out lab test cases + your own CSV readings | `GET /api/testcases`, `POST /api/testcases/run`, `POST /api/predict` |
 
-Map tiles: OpenStreetMap (`tile.openstreetmap.org`, no key). CARTO basemaps now require an API key, so they aren't used.
+Products, locations, trucks and assumptions are loaded from `GET /api/locations` and `GET /api/calibration` at startup (`src/demo/config.ts → initConfig`). `src/data/demo.json` only holds UI settings (speeds, colours, statuses).

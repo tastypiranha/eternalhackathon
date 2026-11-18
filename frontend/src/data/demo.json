@@ -1,0 +1,32 @@
+{
+  "_note": "UI-only settings. Products, locations, trucks, assumptions and the calibrated model are loaded from the backend (/api/locations, /api/calibration).",
+  "simulation": {
+    "tick_seconds": 1,
+    "min_speed": 1,
+    "max_speed": 10,
+    "live_tag_id": "C-001",
+    "live_tag_timeout_s": 30,
+    "temp_min": -5,
+    "temp_max": 35,
+    "history_max_points": 400,
+    "truck_speed_kmh": 15,
+    "road_factor": 1.3,
+    "heat_minutes_options": [30, 60, 120, 240, 480],
+    "heat_minutes_default": 120
+  },
+  "map": {
+    "center": [12.97, 77.66],
+    "zoom": 11,
+    "tile_url": "https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}",
+    "label_url": "https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Reference/MapServer/tile/{z}/{y}/{x}",
+    "attribution": "Tiles &copy; Esri &mdash; Esri, HERE, Garmin, &copy; OpenStreetMap contributors",
+    "max_zoom": 16
+  },
+  "statuses": [
+    { "id": "fresh", "label": "Fresh", "color": "#16A34A" },
+    { "id": "watch", "label": "Watch", "color": "#EAB308" },
+    { "id": "at_risk", "label": "At risk", "color": "#F97316" },
+    { "id": "critical", "label": "Critical", "color": "#DC2626" },
+    { "id": "spoiled", "label": "Spoiled", "color": "#6B7280" }
+  ]
+}

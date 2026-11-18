@@ -10,7 +10,7 @@
 | `fruit_cold/` | [Mendeley czz68d9fwj](https://data.mendeley.com/datasets/czz68d9fwj): fruit cold storage (temp, humidity, light, CO₂, Good/Bad) | downloaded; it has no time axis or microbial counts, so it can't calibrate shelf life (not used) |
 | `foodkeeper/` | USDA FSIS FoodKeeper ([data.gov](https://catalog.data.gov/dataset/fsis-foodkeeper-data); FSIS blocks automated download, so a GitHub copy of the same JSON is used) | relative perishability of chicken / curd-yogurt / bagged greens / strawberries vs beef |
 | `strawberry/` | [Abdella, Brecht & Uysal 2021](https://arxiv.org/abs/2103.12895), strawberry cold-chain shipments S1–S6, 9 logger points each ([HF copy](https://huggingface.co/datasets/NifferLi/cold-chain-strawberry-sensors), CC BY 4.0) | 42 real truck / cold-room temperature traces, the real pre-cooling and warm-up curves, the benchmark |
-| `zenodo_coldchain/` | [Zenodo 20540723](https://zenodo.org/records/20540723) (CC BY 4.0), DHT22 in a refrigerator | real door-opening temperature spike and humidity |
+| `zenodo_coldchain/` | [Zenodo 20540723](https://zenodo.org/records/20540723) (CC BY 4.0), DHT22 in a refrigerator + MPU6050 accelerometer | real door-opening temperature spike and humidity; real shock / rough-road peaks (`data/processed/vibration.json`) for shipment journeys |
 
 Rebuild everything from raw data:
 ```bash
@@ -45,7 +45,7 @@ This writes `backend/data/calibration.json`, `backend/models/gas_model.joblib`, 
 **Disclosure:** the growth-rate fitting method was changed once, from a straight line over the whole curve to the rate up to the acceptable threshold, after the first held-out scorecard (4/12) showed that the plateau made the straight-line fit too slow. Nothing else was tuned on the held-out data.
 
 ## What is still an assumption (no public data exists)
-`backend/data/assumptions.json`, `locations.json`, `trucks.json`:
+`backend/data/assumptions.json`, `locations.json`, `trucks.json`, `network.json` (origin hubs, destination-city outlets, highway speed 45 km/h):
 - Bengaluru locations, store demand, trucks and drivers (all labelled "demo").
 - Hours a destination needs on arrival: restaurant 24 h, dark store 8 h, food bank 2 h.
 - Truck speed (15 km/h), stop time, loading-dock dwell (20–60 min), crates per truck.
