@@ -16,13 +16,23 @@ async function run(fn, okMsg) {
 export default function ControlPanel({ state }) {
   const crates = state?.crates || []
   const trucks = state?.trucks || []
-  const [crateId, setCrateId] = useState('C-003')
-  const [truckId, setTruckId] = useState('T-3')
+  const fefoTop = state?.dispatch?.fefo?.[0]?.crate_id
+  const [crateId, setCrateId] = useState(null)
+  const [truckId, setTruckId] = useState(null)
+  const [heatMin, setHeatMin] = useState(120)
+  // default to the most urgent crate (FEFO #1) and its truck
+  useEffect(() => {
+    if (!crateId && fefoTop) setCrateId(fefoTop)
+  }, [crateId, fefoTop])
+  useEffect(() => {
+    const c = crates.find((x) => x.id === (crateId || fefoTop))
+    if (!truckId && c?.truck_id) setTruckId(c.truck_id)
+  }, [truckId, crateId, fefoTop, crates])
   const [tagOpen, setTagOpen] = useState(false)
 
   // keep selections valid when crates are delivered / respawned
   useEffect(() => {
-    if (crates.length && !crates.find((c) => c.id === crateId)) {
+    if (crateId && crates.length && !crates.find((c) => c.id === crateId)) {
       setCrateId(crates.find((c) => c.truck_id)?.id || crates[0].id)
     }
   }, [crates, crateId])
@@ -33,23 +43,31 @@ export default function ControlPanel({ state }) {
   return (
     <div className="relative flex h-full items-center gap-4 overflow-x-auto border-t bg-white px-4">
       <Group label="Crate">
-        <select className="rounded border px-1.5 py-1 text-xs" value={crateId} onChange={(e) => setCrateId(e.target.value)}>
+        <select className="rounded border px-1.5 py-1 text-xs" value={crateId || ''} onChange={(e) => setCrateId(e.target.value)}>
           {crates.map((c) => (
             <option key={c.id} value={c.id}>
-              {c.id} {c.emoji} {c.product_label} {c.truck_id ? `– ${c.truck_id}` : '– cold room'}
+              {c.id} {c.emoji} {c.product_label} · {c.hours_left} h {c.truck_id ? `· ${c.truck_id}` : '· cold room'}
+              {c.id === fefoTop ? ' (most urgent)' : ''}
             </option>
           ))}
         </select>
-        <button className={`${btn} bg-orange-500 text-white hover:bg-orange-600`} onClick={() => run(() => api.heat(crateId), `🔥 Heating ${crateId}`)}>
-          🔥 Heat crate
+        <select className="rounded border px-1.5 py-1 text-xs" value={heatMin} onChange={(e) => setHeatMin(Number(e.target.value))} title="How long the crate is left outside refrigeration (sim minutes)">
+          {[30, 60, 120, 240, 480].map((m) => (
+            <option key={m} value={m}>
+              out {m < 60 ? `${m} min` : `${m / 60} h`}
+            </option>
+          ))}
+        </select>
+        <button className={`${btn} bg-orange-500 text-white hover:bg-orange-600`} onClick={() => run(() => api.heat(crateId, heatMin), `🔥 ${crateId} left out of the cold for ${heatMin} min`)}>
+          🔥 Leave out of cold
         </button>
-        <button className={`${btn} bg-amber-100 text-amber-900 hover:bg-amber-200`} onClick={() => run(() => api.shock(crateId), `💥 Shock on ${crateId}`)}>
-          💥 Shock crate
+        <button className={`${btn} bg-amber-100 text-amber-900 hover:bg-amber-200`} onClick={() => run(() => api.shock(crateId), `💥 Shock logged on ${crateId}`)}>
+          💥 Log shock
         </button>
       </Group>
 
       <Group label="Truck">
-        <select className="rounded border px-1.5 py-1 text-xs" value={truckId} onChange={(e) => setTruckId(e.target.value)}>
+        <select className="rounded border px-1.5 py-1 text-xs" value={truckId || ''} onChange={(e) => setTruckId(e.target.value)}>
           {trucks.map((t) => (
             <option key={t.id} value={t.id}>
               {t.name} ({t.driver.replace(' (demo)', '')})
@@ -118,7 +136,7 @@ function Group({ label, children }) {
 }
 
 function LiveTagSlider({ onClose }) {
-  const [v, setV] = useState({ temp_c: 4, humidity: 88, voc_index: 60, door_open: false })
+  const [v, setV] = useState({ temp_c: 3, humidity: 60, door_open: false })
   const [sending, setSending] = useState(false)
   const latest = useRef(v)
   latest.current = v
@@ -163,7 +181,7 @@ function LiveTagSlider({ onClose }) {
       <p className="mb-2 text-[11px] text-gray-500">Backup for the Wokwi ESP32. Sends a tag reading every 2 s while on.</p>
       {row('Temperature', 'temp_c', -2, 35, 0.5, ' °C')}
       {row('Humidity', 'humidity', 40, 100, 1, ' %')}
-      {row('VOC index', 'voc_index', 0, 500, 5, '')}
+      
       <label className="mt-1 flex items-center gap-2 text-xs">
         <input type="checkbox" checked={v.door_open} onChange={(e) => setV({ ...v, door_open: e.target.checked })} /> Door open
       </label>

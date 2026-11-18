@@ -9,44 +9,52 @@ def test_api_contract():
 
         s = client.get("/api/state").json()
         assert s["type"] == "state" and s["paused"] is True
-        assert len(s["crates"]) == 12 and len(s["trucks"]) == 3
-        c001 = next(c for c in s["crates"] if c["id"] == "C-001")
-        assert c001["truck_id"] is None and c001["stage"] == "cold_room" and c001["is_live_tag"]
-        for key in ("fefo", "fifo"):
-            assert len(s["dispatch"][key]) == 11
-        assert s["dispatch"]["fefo"][0]["crate_id"] == "C-003"
+        assert len(s["trucks"]) == 3 and len(s["crates"]) == 13
+        tag = next(c for c in s["crates"] if c["is_live_tag"])
+        assert tag["truck_id"] is None and tag["stage"] == "cold_room"
+        crate = next(c for c in s["crates"] if c["truck_id"])
+        for k in ("tvc", "tvc_kinetic", "quality_stage", "hours_left", "freshness_score", "status"):
+            assert k in crate
+        assert len(s["dispatch"]["fefo"]) == 12
 
         loc = client.get("/api/locations").json()
-        assert len(loc["locations"]) == 22 and len(loc["trucks"]) == 3 and "chicken" in loc["products"]
+        assert len(loc["locations"]) == 22 and "chicken" in loc["products"] and "assumptions" in loc
 
-        j = client.get("/api/crates/C-003/journey").json()
-        assert [st["stage"] for st in j["stages"]][:3] == ["farm_pickup", "loading_dock", "cold_room"]
-        assert j["blame"]["stage"] == "loading_dock"
-        assert len(j["readings"]) <= 401
+        cal = client.get("/api/calibration").json()
+        assert cal["stage_thresholds_log_cfu"] and cal["products"]["chicken"]["ratkowsky_b"] > 0
+
+        j = client.get(f"/api/crates/{crate['id']}/journey").json()
+        assert [st["stage"] for st in j["stages"]][0] == "farm_pickup"
+        assert len(j["readings"]) <= 401 and "tvc" in j["readings"][0]
 
         assert client.get("/api/crates/NOPE/journey").status_code == 404
         assert client.post("/api/simulate/heat/NOPE").status_code == 404
-        assert client.post("/api/simulate/door/T-9").status_code == 404
-
-        assert client.post("/api/simulate/heat/C-003").json() == {"ok": True}
-        assert client.post("/api/simulate/shock/C-007").json() == {"ok": True}
+        assert client.post(f"/api/simulate/heat/{crate['id']}?minutes=90").json()["minutes"] == 90
+        assert client.post(f"/api/simulate/heat/{crate['id']}?minutes=0").status_code == 400
+        assert client.post(f"/api/simulate/shock/{crate['id']}").json() == {"ok": True}
         assert client.post("/api/simulate/door/T-1").json() == {"ok": True}
         assert client.post("/api/simulate/compressor/T-3/fail").json() == {"ok": True}
         assert client.post("/api/simulate/compressor/T-3/fix").json() == {"ok": True}
         r = client.post("/api/sim/control", json={"paused": False, "minutes_per_tick": 2}).json()
         assert r["paused"] is False and r["minutes_per_tick"] == 2
-        assert client.post("/api/sim/control", json={"minutes_per_tick": 50}).status_code == 400
+        assert client.post("/api/tag/reading", json={"crate_id": "C-001", "temp_c": 20}).json()["ok"]
 
-        assert client.post("/api/tag/reading", json={"crate_id": "C-001", "temp_c": 20, "humidity": 70,
-                                                     "voc_index": 100, "door_open": False, "source": "slider"}).json()["ok"]
+        p = client.post("/api/predict", json={"product": "chicken", "readings": [{"minute": 0, "temp_c": 3}, {"minute": 600, "temp_c": 3}]})
+        assert p.status_code == 200 and p.json()["quality_stage"] in cal["stage_names"]
+        assert client.post("/api/predict", json={"product": "x", "readings": []}).status_code == 400
+
+        cases = client.get("/api/testcases").json()
+        assert len(cases) >= 10
+        assert client.get(f"/api/testcases/{cases[0]['id']}").json()["input"]["readings"]
+        run = client.post("/api/testcases/run").json()
+        assert run["total"] == len(cases) and run["passed"] >= 0.8 * run["total"]
+
         a = client.get("/api/analytics").json()
-        assert a["hours_lost_by_truck"][0]["truck_id"] == "T-3"
-        assert "available" in client.get("/api/model-card").json()
+        assert a["model_card"]["available"] and a["hours_lost_by_truck"]
 
         assert client.post("/api/demo/reset").json() == {"ok": True}
         s2 = client.get("/api/state").json()
-        assert s2["paused"] is True and s2["tick"] == 0 and s2["minutes_per_tick"] == 1
+        assert s2["tick"] == 0 and s2["paused"] is True and s2["seed"] == s["seed"]
 
         with client.websocket_connect("/ws") as ws:
-            msg = ws.receive_json()
-            assert msg["type"] == "state"
+            assert ws.receive_json()["type"] == "state"

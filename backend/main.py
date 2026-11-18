@@ -14,7 +14,10 @@ from pydantic import BaseModel
 import analytics
 import config as C
 import journey
+import model as M
 import mqtt_tag
+import predict as P
+import run_testcases
 from world import World
 
 world: World | None = None
@@ -108,7 +111,8 @@ async def state():
 
 @app.get("/api/locations")
 async def locations():
-    return {"locations": list(C.LOCATIONS.values()), "trucks": C.TRUCKS, "products": C.PRODUCTS}
+    return {"locations": list(C.LOCATIONS.values()), "trucks": C.TRUCKS, "products": M.PRODUCTS,
+            "stage_thresholds_log_cfu": M.THRESHOLDS, "assumptions": C.ASSUMPTIONS}
 
 
 @app.get("/api/crates/{crate_id}/journey")
@@ -126,14 +130,51 @@ async def get_analytics():
 
 @app.get("/api/model-card")
 async def model_card():
-    return C.load_optional("model1_results.json") or {"available": False}
+    return analytics.model_card()
+
+
+@app.get("/api/calibration")
+async def calibration():
+    return M.CAL
+
+
+# ----------------------------------------------------------------------------- prediction + test cases
+@app.post("/api/predict")
+async def api_predict(body: dict):
+    try:
+        return P.predict(body)
+    except P.PredictError as e:
+        raise HTTPException(400, str(e))
+
+
+@app.get("/api/testcases")
+async def testcases():
+    return [{"id": c["id"], "description": c["description"], "product": c["input"]["product"],
+             "n_readings": len(c["input"]["readings"]), "expected": c["expected"]} for c in run_testcases.load_cases()]
+
+
+@app.get("/api/testcases/{case_id}")
+async def testcase(case_id: str):
+    for c in run_testcases.load_cases():
+        if c["id"] == case_id:
+            return c
+    raise HTTPException(404, f"Unknown test case {case_id}")
+
+
+@app.post("/api/testcases/run")
+async def testcases_run():
+    rows = run_testcases.run_all()
+    return {"results": rows, "passed": sum(r["pass"] for r in rows), "total": len(rows),
+            "mean_abs_error_log_cfu": round(sum(r["abs_error"] for r in rows) / len(rows), 3)}
 
 
 # ----------------------------------------------------------------------------- scenarios
 @app.post("/api/simulate/heat/{crate_id}")
-async def sim_heat(crate_id: str):
-    world.heat(_crate(crate_id))
-    return {"ok": True}
+async def sim_heat(crate_id: str, minutes: float = 60):
+    if not 1 <= minutes <= 720:
+        raise HTTPException(400, "minutes must be 1-720")
+    world.heat(_crate(crate_id), minutes)
+    return {"ok": True, "minutes": minutes}
 
 
 @app.post("/api/simulate/shock/{crate_id}")
@@ -186,8 +227,8 @@ async def demo_reset():
 class TagReading(BaseModel):
     crate_id: str = C.LIVE_TAG_ID
     temp_c: float
-    humidity: float = C.HUMIDITY_NORMAL
-    voc_index: float = 60
+    humidity: float | None = None
+    voc_index: float | None = None
     door_open: bool = False
     source: str = "slider"
 

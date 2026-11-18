@@ -136,7 +136,8 @@ function Report({ j, locations, onClose }) {
           <Kpi label="Hours left" value={fmtH(s.hours_left)} big color={STATUS_COLORS[s.status]} />
           <Kpi label="If it stays at current temp" value={fmtH(c.hours_left_if_unchanged)} />
           <Kpi label="Temp / humidity" value={`${fmtT(c.temp_c)} · ${c.humidity}%`} />
-          <Kpi label="VOC index" value={c.voc_index} />
+          <Kpi label="Bacterial load" value={`${s.tvc} log CFU/g`} />
+          <Kpi label="Quality stage" value={s.quality_stage} />
         </div>
         {(c.destination_id || c.original_destination_id) && (
           <div className="rounded-lg border p-2.5 text-xs">
@@ -208,18 +209,19 @@ function Report({ j, locations, onClose }) {
           </ResponsiveContainer>
         </Chart>
 
-        {/* freshness */}
-        <Chart title="Freshness score" hint="drops faster whenever it gets warm">
-          <ResponsiveContainer width="100%" height={150}>
+        {/* bacterial load */}
+        <Chart title="Bacterial load (log CFU/g)" hint="grows faster whenever it gets warm · dashed lines = quality stages from lab data">
+          <ResponsiveContainer width="100%" height={170}>
             <ComposedChart data={readings} margin={{ top: 5, right: 10, left: -15, bottom: 0 }}>
               <CartesianGrid strokeDasharray="3 3" stroke="#eee" />
               {xAxis}
-              <YAxis tick={{ fontSize: 10 }} domain={[0, 100]} />
+              <YAxis tick={{ fontSize: 10 }} domain={[1.5, (max) => Math.max(5.6, Math.ceil(max * 2) / 2)]} />
               {tooltip}
-              <ReferenceLine y={70} stroke={STATUS_COLORS.watch} strokeDasharray="3 3" />
-              <ReferenceLine y={40} stroke={STATUS_COLORS.at_risk} strokeDasharray="3 3" />
-              <ReferenceLine y={15} stroke={STATUS_COLORS.critical} strokeDasharray="3 3" />
-              <Area type="monotone" dataKey="freshness_score" name="Freshness" stroke="#E23744" fill="#E23744" fillOpacity={0.12} strokeWidth={2} isAnimationActive={false} />
+              {(j.thresholds_log_cfu || []).map((t, i) => (
+                <ReferenceLine key={t} y={t} stroke={[STATUS_COLORS.watch, STATUS_COLORS.at_risk, STATUS_COLORS.spoiled][i]} strokeDasharray="4 3"
+                  label={{ value: ['good', 'acceptable', 'spoiled'][i], fontSize: 10, position: 'insideTopLeft' }} />
+              ))}
+              <Area type="monotone" dataKey="tvc" name="Bacteria (log CFU/g)" stroke="#E23744" fill="#E23744" fillOpacity={0.12} strokeWidth={2} isAnimationActive={false} />
             </ComposedChart>
           </ResponsiveContainer>
         </Chart>
@@ -280,7 +282,8 @@ function Report({ j, locations, onClose }) {
 
         <div className="border-t pt-2 text-[11px] text-gray-500">
           Picked up {dayTick(toMs(s.picked_up_at))} · Total life {s.total_life_h} h at {p.t_ref_c} °C · Used {s.life_used_h} h · Extra loss
-          from heat {s.extra_loss_h} h
+          from heat {s.extra_loss_h} h · Start load {s.initial_tvc} log CFU/g · Temperature model {s.tvc_kinetic}
+          {s.tvc_gas != null ? ` · gas sensors ${s.tvc_gas}` : ' · no gas model for this product'} · FoodKeeper: {p.foodkeeper_entry} {p.foodkeeper_fridge_days?.join('–')} days
         </div>
       </div>
     </div>

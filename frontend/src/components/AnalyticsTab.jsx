@@ -68,12 +68,12 @@ export default function AnalyticsTab({ trucksMeta }) {
           </ResponsiveContainer>
         </Card>
 
-        <Card title="FIFO vs FreshSense: benchmark" note="Simulation with literature-based parameters, not field data">
+        <Card title="FIFO vs FreshSense: benchmark" note="Real cold-chain temperature traces + calibrated model; destination rules are assumptions">
           {a.benchmark ? <Benchmark b={a.benchmark} /> : <Pending text="Benchmark pending. Run python benchmark.py in backend/." />}
         </Card>
 
-        <Card title="Model 1: spoilage from gas sensors" note="Validated on REAL lab data">
-          {a.model_card?.available ? <ModelCard m={a.model_card} /> : <Pending text="Model results pending (Person C)." />}
+        <Card title="The freshness model (calibrated on real data)" note="Errors are on beef series the model never saw during fitting">
+          {a.model_card?.available ? <ModelCard m={a.model_card} /> : <Pending text="Calibration missing: run backend/calibration/build.py" />}
         </Card>
       </div>
     </div>
@@ -97,7 +97,7 @@ function Benchmark({ b }) {
           <div className="text-xs text-gray-500">less food wasted</div>
         </div>
         <div className="text-xs text-gray-500">
-          {b.crates_simulated} crates simulated
+          {b.crates_simulated} crates on {b.real_temperature_traces} real shipment traces
           <br />
           {b.freshsense.redirected} redirected · {b.freshsense.donated} donated
         </div>
@@ -122,43 +122,54 @@ function Benchmark({ b }) {
 }
 
 function ModelCard({ m }) {
+  const h = m.holdout || {}
   return (
     <div className="text-xs">
-      <a href={m.dataset_url} target="_blank" rel="noreferrer" className="font-semibold text-blue-700 underline">
-        {m.dataset_name}
-      </a>
-      <div className="mt-0.5 text-gray-600">{m.task}</div>
-      <div className="mt-2 flex gap-6">
-        <div>
-          <div className="text-3xl font-bold">{Math.round(m.accuracy * 100)}%</div>
-          <div className="text-gray-500">
-            exact stage (of 4)
-            {m.chance_accuracy != null && <div>chance = {Math.round(m.chance_accuracy * 100)}%</div>}
-          </div>
-        </div>
-        {m.within_one_stage != null && (
-          <div>
-            <div className="text-3xl font-bold text-green-600">{Math.round(m.within_one_stage * 100)}%</div>
-            <div className="text-gray-500">within one stage</div>
-          </div>
-        )}
-        {m.binary_accuracy != null && (
-          <div>
-            <div className="text-3xl font-bold">{Math.round(m.binary_accuracy * 100)}%</div>
-            <div className="text-gray-500">spoiled vs sellable</div>
-          </div>
-        )}
+      <div className="grid grid-cols-4 gap-3">
+        <Big v={m.gas_loso_mae} l="gas model error (log CFU/g), unseen beef series" />
+        <Big v={`${Math.round(m.gas_within_one_stage * 100)}%`} l="gas model within one quality stage" />
+        <Big v={m.fusion.fused_loso_mae_log_cfu} l="fused error (temperature + gas)" c="text-green-600" />
+        <Big v={h.TS5?.fused_mae_log_cfu ?? '–'} l="fully held-out series TS5" c="text-green-600" />
       </div>
-      <div className="mt-2 text-gray-500">
-        {m.n_samples} samples · {m.n_features} features · macro F1 {m.macro_f1} · top sensors: {m.top_features?.join(', ')}
-        <br />
-        Tested on beef cuts the model never saw ({m.validation}).
+      <div className="mt-2 text-gray-600">
+        Quality stages from labelled lab data: good ≥ {m.thresholds_log_cfu[0]}, acceptable ≥ {m.thresholds_log_cfu[1]}, spoiled ≥{' '}
+        {m.thresholds_log_cfu[2]} log CFU/g · Ratkowsky growth fitted to {m.growth_points.length} real spoilage curves (Tmin {m.tmin_c} °C from
+        literature) · fusion weights: temperature {m.fusion.weight_kinetic}, gas {m.fusion.weight_gas}
       </div>
-      <div className="mt-2 grid grid-cols-3 gap-2">
+      <table className="mt-2 w-full text-left">
+        <thead className="text-gray-400">
+          <tr>
+            <th>Product</th>
+            <th>FoodKeeper entry (fridge days)</th>
+            <th className="text-right">Model shelf life at {m.reference_temp_c} °C</th>
+          </tr>
+        </thead>
+        <tbody>
+          {Object.entries(m.products).map(([k, p]) => (
+            <tr key={k} className="border-t">
+              <td>{p.label}</td>
+              <td className="text-gray-600">
+                {p.foodkeeper_entry} ({p.foodkeeper_fridge_days.join('–')} d)
+              </td>
+              <td className="text-right font-semibold">{p.model_shelf_life_days_at_ref} d</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+      <div className="mt-2 grid grid-cols-2 gap-2">
         {(m.images || []).map((src) => (
           <img key={src} src={src} alt="" className="rounded border" onError={(e) => (e.currentTarget.style.display = 'none')} />
         ))}
       </div>
+    </div>
+  )
+}
+
+function Big({ v, l, c = 'text-gray-900' }) {
+  return (
+    <div>
+      <div className={`text-2xl font-bold ${c}`}>{v}</div>
+      <div className="text-gray-500">{l}</div>
     </div>
   )
 }

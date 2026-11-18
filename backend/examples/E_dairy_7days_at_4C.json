@@ -1,0 +1,121 @@
+{
+ "product": "dairy",
+ "readings": [
+  {
+   "minute": 0,
+   "temp_c": 4
+  },
+  {
+   "minute": 360,
+   "temp_c": 4
+  },
+  {
+   "minute": 720,
+   "temp_c": 4
+  },
+  {
+   "minute": 1080,
+   "temp_c": 4
+  },
+  {
+   "minute": 1440,
+   "temp_c": 4
+  },
+  {
+   "minute": 1800,
+   "temp_c": 4
+  },
+  {
+   "minute": 2160,
+   "temp_c": 4
+  },
+  {
+   "minute": 2520,
+   "temp_c": 4
+  },
+  {
+   "minute": 2880,
+   "temp_c": 4
+  },
+  {
+   "minute": 3240,
+   "temp_c": 4
+  },
+  {
+   "minute": 3600,
+   "temp_c": 4
+  },
+  {
+   "minute": 3960,
+   "temp_c": 4
+  },
+  {
+   "minute": 4320,
+   "temp_c": 4
+  },
+  {
+   "minute": 4680,
+   "temp_c": 4
+  },
+  {
+   "minute": 5040,
+   "temp_c": 4
+  },
+  {
+   "minute": 5400,
+   "temp_c": 4
+  },
+  {
+   "minute": 5760,
+   "temp_c": 4
+  },
+  {
+   "minute": 6120,
+   "temp_c": 4
+  },
+  {
+   "minute": 6480,
+   "temp_c": 4
+  },
+  {
+   "minute": 6840,
+   "temp_c": 4
+  },
+  {
+   "minute": 7200,
+   "temp_c": 4
+  },
+  {
+   "minute": 7560,
+   "temp_c": 4
+  },
+  {
+   "minute": 7920,
+   "temp_c": 4
+  },
+  {
+   "minute": 8280,
+   "temp_c": 4
+  },
+  {
+   "minute": 8640,
+   "temp_c": 4
+  },
+  {
+   "minute": 9000,
+   "temp_c": 4
+  },
+  {
+   "minute": 9360,
+   "temp_c": 4
+  },
+  {
+   "minute": 9720,
+   "temp_c": 4
+  },
+  {
+   "minute": 10080,
+   "temp_c": 4
+  }
+ ]
+}

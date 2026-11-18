@@ -70,7 +70,7 @@ function CrateCard({ c, locations, onClick }) {
           <div className="text-2xl font-bold" style={{ color: STATUS_COLORS[c.status] }}>
             {fmtH(c.hours_left)}
           </div>
-          <div className="text-[11px] text-gray-500">left · {STATUS_LABELS[c.status]}</div>
+          <div className="text-[11px] text-gray-500">left at 4.4 °C · quality: {c.quality_stage}</div>
         </div>
       </div>
       <div className="mt-2 grid grid-cols-3 gap-1 text-[11px]">
@@ -81,7 +81,7 @@ function CrateCard({ c, locations, onClick }) {
           💧 <b>{c.humidity}%</b>
         </div>
         <div>
-          👃 <b>{c.voc_index}</b>
+          🦠 <b>{c.tvc}</b> log
         </div>
       </div>
       <div className="mt-1.5 truncate text-[11px] text-gray-600">

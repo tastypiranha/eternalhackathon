@@ -1,16 +1,43 @@
 {
-  "crates_simulated": 1000,
+  "crates_simulated": 10080,
+  "real_temperature_traces": 42,
   "fifo": {
-    "rejected": 189,
-    "kg_wasted": 3388
+    "delivered_ok": 7379,
+    "rejected": 2701,
+    "kg_wasted": 41882
   },
   "freshsense": {
-    "rejected": 64,
-    "kg_wasted": 1162,
-    "redirected": 86,
-    "donated": 39
+    "delivered_ok": 7351,
+    "rejected": 1948,
+    "kg_wasted": 29354,
+    "redirected": 611,
+    "donated": 170,
+    "kg_saved": 13008
   },
-  "rejection_reduction_pct": 66.1,
-  "waste_reduction_pct": 65.7,
-  "note": "Simulation with literature-based parameters, not field data."
+  "rejection_reduction_pct": 27.9,
+  "waste_reduction_pct": 29.9,
+  "by_product": {
+    "chicken": {
+      "crates": 2520,
+      "fifo_rejected": 1612,
+      "freshsense_rejected": 1082
+    },
+    "dairy": {
+      "crates": 2520,
+      "fifo_rejected": 12,
+      "freshsense_rejected": 4
+    },
+    "greens": {
+      "crates": 2520,
+      "fifo_rejected": 369,
+      "freshsense_rejected": 361
+    },
+    "strawberries": {
+      "crates": 2520,
+      "fifo_rejected": 708,
+      "freshsense_rejected": 501
+    }
+  },
+  "method": "Real strawberry cold-chain temperature traces + calibrated spoilage model; destination rules and trip lengths are assumptions.",
+  "note": "Simulation on real temperature data, not a field trial."
 }

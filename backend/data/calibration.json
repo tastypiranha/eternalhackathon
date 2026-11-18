@@ -1,0 +1,248 @@
+{
+ "generated_at": "2026-11-18T21:08:07Z",
+ "literature": {
+  "ratkowsky_tmin_c": -8.0,
+  "source": "Ratkowsky square-root model; Tmin ~ -8 °C for meat spoilage Pseudomonas (predictive microbiology literature)"
+ },
+ "reference_temp_c": 4.4,
+ "stage_names": [
+  "excellent",
+  "good",
+  "acceptable",
+  "spoiled"
+ ],
+ "stage_thresholds_log_cfu": [
+  3.11,
+  4.05,
+  5.1
+ ],
+ "spoilage_threshold_log_cfu": 5.1,
+ "max_tvc_observed_log_cfu": 6.31,
+ "initial_tvc_log_cfu": {
+  "median": 1.88,
+  "values": [
+   2.57,
+   2.34,
+   2.23,
+   2.36,
+   2.0,
+   1.88,
+   1.88,
+   1.88,
+   1.88,
+   1.88,
+   1.88,
+   1.88,
+   1.88,
+   2.11,
+   2.0
+  ]
+ },
+ "beef_growth_points": [
+  {
+   "series": "TS1",
+   "mean_temp_c": 37.9,
+   "growth_log_per_h": 0.1545,
+   "b": 0.0085558436407792
+  },
+  {
+   "series": "TS2",
+   "mean_temp_c": 32.2,
+   "growth_log_per_h": 0.1622,
+   "b": 0.010012179439728968
+  },
+  {
+   "series": "TS3",
+   "mean_temp_c": 33.6,
+   "growth_log_per_h": 0.1686,
+   "b": 0.009870770505480247
+  },
+  {
+   "series": "TS4",
+   "mean_temp_c": 33.6,
+   "growth_log_per_h": 0.1641,
+   "b": 0.009738111437920107
+  },
+  {
+   "series": "esp32",
+   "mean_temp_c": 31.7,
+   "growth_log_per_h": 0.2672,
+   "b": 0.013032958778027997
+  }
+ ],
+ "ratkowsky_b_beef": 0.009871,
+ "products": {
+  "beef": {
+   "id": "beef",
+   "label": "Beef",
+   "emoji": "🥩",
+   "weight_kg": 20,
+   "gas_model": true,
+   "simulate": false,
+   "ratkowsky_b": 0.009871,
+   "foodkeeper_entry": "Beef (steaks)",
+   "foodkeeper_fridge_days": [
+    3.0,
+    5.0
+   ],
+   "model_shelf_life_days_at_ref": 9.0,
+   "max_safe_c": 4.4,
+   "t_ref_c": 4.4
+  },
+  "chicken": {
+   "id": "chicken",
+   "label": "Chicken",
+   "emoji": "🍗",
+   "weight_kg": 20,
+   "gas_model": true,
+   "simulate": true,
+   "ratkowsky_b": 0.016119,
+   "foodkeeper_entry": "Chicken (whole)",
+   "foodkeeper_fridge_days": [
+    1.0,
+    2.0
+   ],
+   "model_shelf_life_days_at_ref": 3.4,
+   "max_safe_c": 4.4,
+   "t_ref_c": 4.4
+  },
+  "dairy": {
+   "id": "dairy",
+   "label": "Dairy (curd/yogurt)",
+   "emoji": "🥛",
+   "weight_kg": 24,
+   "gas_model": false,
+   "simulate": true,
+   "ratkowsky_b": 0.006092,
+   "foodkeeper_entry": "Yogurt",
+   "foodkeeper_fridge_days": [
+    7.0,
+    14.0
+   ],
+   "model_shelf_life_days_at_ref": 23.5,
+   "max_safe_c": 4.4,
+   "t_ref_c": 4.4
+  },
+  "greens": {
+   "id": "greens",
+   "label": "Leafy greens",
+   "emoji": "🥬",
+   "weight_kg": 10,
+   "gas_model": false,
+   "simulate": true,
+   "ratkowsky_b": 0.009871,
+   "foodkeeper_entry": "Bagged greens (leaf, spinach, lettuce, etc.)",
+   "foodkeeper_fridge_days": [
+    3.0,
+    5.0
+   ],
+   "model_shelf_life_days_at_ref": 9.0,
+   "max_safe_c": 4.4,
+   "t_ref_c": 4.4
+  },
+  "strawberries": {
+   "id": "strawberries",
+   "label": "Strawberries",
+   "emoji": "🍓",
+   "weight_kg": 8,
+   "gas_model": false,
+   "simulate": true,
+   "ratkowsky_b": 0.012486,
+   "foodkeeper_entry": "Strawberries",
+   "foodkeeper_fridge_days": [
+    2.0,
+    3.0
+   ],
+   "model_shelf_life_days_at_ref": 5.6,
+   "max_safe_c": 4.4,
+   "t_ref_c": 4.4
+  }
+ },
+ "gas_model": {
+  "path": "models/gas_model.joblib",
+  "sensors": [
+   "MQ2",
+   "MQ3",
+   "MQ4",
+   "MQ5",
+   "MQ135",
+   "MQ136"
+  ],
+  "features": "log(smoothed/first-30-readings) per sensor + 1-hour change",
+  "loso": {
+   "mae_log_cfu": 0.648,
+   "stage_accuracy": 0.535,
+   "within_one_stage": 0.884,
+   "spoiled_detection_accuracy": 0.696,
+   "per_series_mae": {
+    "TS1": 0.635,
+    "TS2": 0.436,
+    "TS3": 0.167,
+    "TS4": 0.364,
+    "1.Inside-Outside": 0.406,
+    "2.Round": 0.207,
+    "3.Top_Sirloin": 0.773,
+    "4.Tenderloin": 0.423,
+    "5.Flap_meat": 0.888,
+    "7.Rib_eye": 0.471,
+    "8.Skirt_meat": 0.308,
+    "9.Brisket": 0.381,
+    "10.Clod_Chuck": 1.782,
+    "12.Fat": 0.467,
+    "esp32": 2.362
+   }
+  }
+ },
+ "kinetic_model": {
+  "loso_mae_log_cfu": 1.197,
+  "per_series_mae": {
+   "TS1": 1.974,
+   "TS2": 0.952,
+   "TS3": 1.046,
+   "TS4": 1.178,
+   "esp32": 0.749
+  }
+ },
+ "fusion": {
+  "weight_kinetic": 0.347,
+  "weight_gas": 0.653,
+  "fused_loso_mae_log_cfu": 0.785
+ },
+ "holdout": {
+  "TS5": {
+   "gas_mae_log_cfu": 0.729,
+   "gas_mae_before_spoilage": 0.729,
+   "temperature": "measured",
+   "kinetic_mae_log_cfu": 1.194,
+   "kinetic_mae_before_spoilage": 1.194,
+   "fused_mae_log_cfu": 0.351,
+   "fused_mae_before_spoilage": 0.351
+  },
+  "6.Striploin": {
+   "gas_mae_log_cfu": 0.566,
+   "gas_mae_before_spoilage": 0.365,
+   "temperature": "not recorded: room temperature of the other experiments",
+   "kinetic_mae_log_cfu": 0.719,
+   "kinetic_mae_before_spoilage": 0.323,
+   "fused_mae_log_cfu": 0.273,
+   "fused_mae_before_spoilage": 0.348
+  },
+  "11.Shin": {
+   "gas_mae_log_cfu": 0.454,
+   "gas_mae_before_spoilage": 0.295,
+   "temperature": "not recorded: room temperature of the other experiments",
+   "kinetic_mae_log_cfu": 0.719,
+   "kinetic_mae_before_spoilage": 0.323,
+   "fused_mae_log_cfu": 0.246,
+   "fused_mae_before_spoilage": 0.275
+  }
+ },
+ "datasets": {
+  "wijaya2018": "https://data.mendeley.com/datasets/mwmhh766fc",
+  "wijaya2020_12cuts": "https://data.mendeley.com/datasets/zm5yvskf5c",
+  "esp32_2025": "https://data.mendeley.com/datasets/n8mc3nspfn",
+  "foodkeeper": "https://catalog.data.gov/dataset/fsis-foodkeeper-data",
+  "strawberry_shipments": "https://huggingface.co/datasets/NifferLi/cold-chain-strawberry-sensors (Abdella et al. 2021)",
+  "zenodo_coldchain": "https://zenodo.org/records/20540723"
+ }
+}

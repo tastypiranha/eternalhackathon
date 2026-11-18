@@ -5,6 +5,7 @@ import ControlPanel from './components/ControlPanel'
 import CratesTab from './components/CratesTab'
 import JourneyDrawer from './components/JourneyDrawer'
 import MapView from './components/MapView'
+import TestLab from './components/TestLab'
 import { DispatchTables, EventFeed } from './components/RightPanel'
 import { ALERT_ICONS, fmtTime } from './config'
 import useLiveState from './hooks/useLiveState'
@@ -58,6 +59,7 @@ export default function App() {
             ['map', '🗺️ Live Map'],
             ['crates', '📦 Crates'],
             ['analytics', '📊 Analytics'],
+            ['lab', '🧪 Test Lab'],
           ].map(([k, l]) => (
             <button
               key={k}
@@ -102,6 +104,11 @@ export default function App() {
         {tab === 'crates' && (
           <div className="min-w-0 flex-1">
             <CratesTab state={state} locations={locations} onOpenCrate={openCrate} />
+          </div>
+        )}
+        {tab === 'lab' && (
+          <div className="min-w-0 flex-1">
+            <TestLab meta={meta} />
           </div>
         )}
         {tab === 'analytics' && (

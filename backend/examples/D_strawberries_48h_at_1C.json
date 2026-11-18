@@ -1,0 +1,105 @@
+{
+ "product": "strawberries",
+ "readings": [
+  {
+   "minute": 0,
+   "temp_c": 1
+  },
+  {
+   "minute": 120,
+   "temp_c": 1
+  },
+  {
+   "minute": 240,
+   "temp_c": 1
+  },
+  {
+   "minute": 360,
+   "temp_c": 1
+  },
+  {
+   "minute": 480,
+   "temp_c": 1
+  },
+  {
+   "minute": 600,
+   "temp_c": 1
+  },
+  {
+   "minute": 720,
+   "temp_c": 1
+  },
+  {
+   "minute": 840,
+   "temp_c": 1
+  },
+  {
+   "minute": 960,
+   "temp_c": 1
+  },
+  {
+   "minute": 1080,
+   "temp_c": 1
+  },
+  {
+   "minute": 1200,
+   "temp_c": 1
+  },
+  {
+   "minute": 1320,
+   "temp_c": 1
+  },
+  {
+   "minute": 1440,
+   "temp_c": 1
+  },
+  {
+   "minute": 1560,
+   "temp_c": 1
+  },
+  {
+   "minute": 1680,
+   "temp_c": 1
+  },
+  {
+   "minute": 1800,
+   "temp_c": 1
+  },
+  {
+   "minute": 1920,
+   "temp_c": 1
+  },
+  {
+   "minute": 2040,
+   "temp_c": 1
+  },
+  {
+   "minute": 2160,
+   "temp_c": 1
+  },
+  {
+   "minute": 2280,
+   "temp_c": 1
+  },
+  {
+   "minute": 2400,
+   "temp_c": 1
+  },
+  {
+   "minute": 2520,
+   "temp_c": 1
+  },
+  {
+   "minute": 2640,
+   "temp_c": 1
+  },
+  {
+   "minute": 2760,
+   "temp_c": 1
+  },
+  {
+   "minute": 2880,
+   "temp_c": 1
+  }
+ ]
+}

@@ -1,9 +1,10 @@
 """Redirect decision rules (master plan 6.6)."""
-from config import LOCATIONS
+from config import ASSUMPTIONS, LOCATIONS
 
 SELL_TYPES = ("restaurant", "dark_store")
 TARGET_TYPES = ("restaurant", "dark_store", "food_bank")
-TYPE_BONUS = {"restaurant": 0.10, "dark_store": 0.05}
+W = ASSUMPTIONS["redirect_score_weights"]
+TYPE_BONUS = {"restaurant": W["type_bonus_restaurant"], "dark_store": W["type_bonus_dark_store"]}
 
 
 def feasible(world, crate, loc_id):
@@ -24,7 +25,8 @@ def score(crate, loc, travel_km, travel_h):
     demand_match = min(1.0, loc["demand_kg_per_day"][crate.product] / (crate.weight_kg * 2))
     time_margin = min(1.0, (crate.hours_left - travel_h - loc["min_hours_needed"]) / 24)
     distance_pen = min(1.0, travel_km / 40)
-    return 0.4 * demand_match + 0.3 * time_margin - 0.2 * distance_pen + TYPE_BONUS.get(loc["type"], 0)
+    return (W["demand_match"] * demand_match + W["time_margin"] * time_margin
+            - W["distance_penalty"] * distance_pen + TYPE_BONUS.get(loc["type"], 0))
 
 
 def decide(world, crate):

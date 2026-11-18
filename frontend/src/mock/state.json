@@ -1,27 +1,33 @@
 {
  "type": "state",
- "tick": 42,
- "sim_time": "2026-11-19T08:42:00",
+ "tick": 30,
+ "sim_time": "2026-11-19T08:30:00",
  "paused": true,
  "minutes_per_tick": 1,
+ "seed": 243,
  "crates": [
   {
    "id": "C-001",
    "product": "dairy",
-   "product_label": "Dairy (milk)",
+   "product_label": "Dairy (curd/yogurt)",
    "emoji": "🥛",
    "weight_kg": 24,
    "truck_id": null,
    "stage": "cold_room",
-   "temp_c": 4.3,
-   "humidity": 88.7,
-   "voc_index": 62,
+   "temp_c": 2.4,
+   "humidity": 36.6,
+   "voc_index": null,
    "door_open": false,
-   "freshness_score": 75.2,
-   "hours_left": 126.3,
-   "hours_left_if_unchanged": 121.7,
-   "status": "fresh",
-   "loaded_at": "2026-11-17T16:40:00",
+   "tvc": 4.51,
+   "tvc_kinetic": 4.51,
+   "tvc_gas": null,
+   "quality_stage": "acceptable",
+   "gas": null,
+   "freshness_score": 18.3,
+   "hours_left": 103.4,
+   "hours_left_if_unchanged": 147.1,
+   "status": "at_risk",
+   "loaded_at": "2026-11-16T16:00:00",
    "destination_id": null,
    "destination_name": null,
    "original_destination_id": null,
@@ -29,62 +35,75 @@
    "redirect_reason": null,
    "eta_min": null,
    "is_live_tag": true,
+   "heat_active": false,
    "lat": 13.0707,
    "lng": 77.7982
   },
   {
    "id": "C-002",
-   "product": "greens",
-   "product_label": "Leafy greens",
-   "emoji": "🥬",
-   "weight_kg": 10,
+   "product": "dairy",
+   "product_label": "Dairy (curd/yogurt)",
+   "emoji": "🥛",
+   "weight_kg": 24,
    "truck_id": "T-1",
    "stage": "in_transit",
-   "temp_c": 2.9,
-   "humidity": 87.5,
-   "voc_index": 108,
+   "temp_c": 2.3,
+   "humidity": 36.6,
+   "voc_index": null,
    "door_open": false,
-   "freshness_score": 59.5,
-   "hours_left": 71.4,
-   "hours_left_if_unchanged": 78.8,
-   "status": "watch",
-   "loaded_at": "2026-11-17T10:50:00",
-   "destination_id": "R-09",
-   "destination_name": "Zomato Partner Restaurant – KR Puram (demo)",
-   "original_destination_id": "R-09",
+   "tvc": 2.32,
+   "tvc_kinetic": 2.32,
+   "tvc_gas": null,
+   "quality_stage": "excellent",
+   "gas": null,
+   "freshness_score": 86.4,
+   "hours_left": 487.8,
+   "hours_left_if_unchanged": 706.9,
+   "status": "fresh",
+   "loaded_at": "2026-11-15T22:30:00",
+   "destination_id": "R-06",
+   "destination_name": "Zomato Partner Restaurant – Rajajinagar (demo)",
+   "original_destination_id": "R-06",
    "redirected": false,
    "redirect_reason": null,
-   "eta_min": 82,
+   "eta_min": 216,
    "is_live_tag": false,
-   "lat": 13.01617,
-   "lng": 77.74895
+   "heat_active": false,
+   "lat": 13.02708,
+   "lng": 77.76936
   },
   {
    "id": "C-003",
-   "product": "chicken",
-   "product_label": "Chicken",
-   "emoji": "🍗",
-   "weight_kg": 20,
-   "truck_id": "T-2",
+   "product": "dairy",
+   "product_label": "Dairy (curd/yogurt)",
+   "emoji": "🥛",
+   "weight_kg": 24,
+   "truck_id": "T-1",
    "stage": "in_transit",
-   "temp_c": 24.2,
-   "humidity": 61.1,
-   "voc_index": 325,
+   "temp_c": 2.3,
+   "humidity": 36.6,
+   "voc_index": null,
    "door_open": false,
-   "freshness_score": 23.5,
-   "hours_left": 22.6,
-   "hours_left_if_unchanged": 0.7,
+   "tvc": 4.08,
+   "tvc_kinetic": 4.08,
+   "tvc_gas": null,
+   "quality_stage": "acceptable",
+   "gas": null,
+   "freshness_score": 31.7,
+   "hours_left": 179.0,
+   "hours_left_if_unchanged": 259.5,
    "status": "at_risk",
-   "loaded_at": "2026-11-16T23:20:00",
-   "destination_id": "DS-04",
-   "destination_name": "Blinkit Dark Store – Whitefield (demo)",
-   "original_destination_id": "R-06",
-   "redirected": true,
-   "redirect_reason": "Only 26 h left; it would reach Zomato Partner Restaurant – Rajajinagar (demo) with ~24 h, below the 24 h it needs. Blinkit Dark Store – Whitefield (demo) is 47 min away and sells 45 kg Chicken/day.",
-   "eta_min": 41,
+   "loaded_at": "2026-11-16T09:00:00",
+   "destination_id": "R-05",
+   "destination_name": "Zomato Partner Restaurant – JP Nagar (demo)",
+   "original_destination_id": "R-05",
+   "redirected": false,
+   "redirect_reason": null,
+   "eta_min": 153,
    "is_live_tag": false,
-   "lat": 13.04077,
-   "lng": 77.73914
+   "heat_active": false,
+   "lat": 13.02708,
+   "lng": 77.76936
   },
   {
    "id": "C-004",
@@ -94,51 +113,70 @@
    "weight_kg": 20,
    "truck_id": "T-1",
    "stage": "in_transit",
-   "temp_c": 3.1,
-   "humidity": 89.0,
-   "voc_index": 121,
+   "temp_c": 2.3,
+   "humidity": 36.6,
+   "voc_index": 16,
    "door_open": false,
-   "freshness_score": 53.0,
-   "hours_left": 50.9,
-   "hours_left_if_unchanged": 42.9,
-   "status": "watch",
-   "loaded_at": "2026-11-17T19:40:00",
-   "destination_id": "R-02",
-   "destination_name": "Zomato Partner Restaurant – Marathahalli (demo)",
-   "original_destination_id": "R-02",
+   "tvc": 2.39,
+   "tvc_kinetic": 3.14,
+   "tvc_gas": 1.98,
+   "quality_stage": "excellent",
+   "gas": {
+    "MQ2": 6.22,
+    "MQ3": 12.14,
+    "MQ4": 15.6,
+    "MQ5": 27.62,
+    "MQ135": 6.85,
+    "MQ136": 2.71
+   },
+   "freshness_score": 84.3,
+   "hours_left": 67.9,
+   "hours_left_if_unchanged": 98.5,
+   "status": "fresh",
+   "loaded_at": "2026-11-18T15:40:00",
+   "destination_id": "R-08",
+   "destination_name": "Zomato Partner Restaurant – Sarjapur Road (demo)",
+   "original_destination_id": "R-08",
    "redirected": false,
    "redirect_reason": null,
-   "eta_min": 44,
+   "eta_min": 87,
    "is_live_tag": false,
-   "lat": 13.01617,
-   "lng": 77.74895
+   "heat_active": false,
+   "lat": 13.02708,
+   "lng": 77.76936
   },
   {
    "id": "C-005",
    "product": "dairy",
-   "product_label": "Dairy (milk)",
+   "product_label": "Dairy (curd/yogurt)",
    "emoji": "🥛",
    "weight_kg": 24,
-   "truck_id": "T-2",
+   "truck_id": "T-1",
    "stage": "in_transit",
-   "temp_c": 2.9,
-   "humidity": 88.6,
-   "voc_index": 99,
+   "temp_c": 2.3,
+   "humidity": 36.6,
+   "voc_index": null,
    "door_open": false,
-   "freshness_score": 59.8,
-   "hours_left": 100.5,
-   "hours_left_if_unchanged": 116.1,
-   "status": "watch",
-   "loaded_at": "2026-11-16T16:30:00",
-   "destination_id": "R-07",
-   "destination_name": "Zomato Partner Restaurant – Yelahanka (demo)",
-   "original_destination_id": "R-07",
+   "tvc": 2.05,
+   "tvc_kinetic": 2.05,
+   "tvc_gas": null,
+   "quality_stage": "excellent",
+   "gas": null,
+   "freshness_score": 94.9,
+   "hours_left": 535.3,
+   "hours_left_if_unchanged": 775.8,
+   "status": "fresh",
+   "loaded_at": "2026-11-18T12:40:00",
+   "destination_id": "R-03",
+   "destination_name": "Zomato Partner Restaurant – Bellandur (demo)",
+   "original_destination_id": "R-03",
    "redirected": false,
    "redirect_reason": null,
-   "eta_min": 287,
+   "eta_min": 305,
    "is_live_tag": false,
-   "lat": 13.04077,
-   "lng": 77.73914
+   "heat_active": false,
+   "lat": 13.02708,
+   "lng": 77.76936
   },
   {
    "id": "C-006",
@@ -148,24 +186,30 @@
    "weight_kg": 10,
    "truck_id": "T-2",
    "stage": "in_transit",
-   "temp_c": 3.2,
-   "humidity": 87.1,
-   "voc_index": 114,
+   "temp_c": 2.3,
+   "humidity": 36.6,
+   "voc_index": null,
    "door_open": false,
-   "freshness_score": 55.9,
-   "hours_left": 67.1,
-   "hours_left_if_unchanged": 72.5,
+   "tvc": 3.7,
+   "tvc_kinetic": 3.7,
+   "tvc_gas": null,
+   "quality_stage": "good",
+   "gas": null,
+   "freshness_score": 43.6,
+   "hours_left": 93.8,
+   "hours_left_if_unchanged": 135.9,
    "status": "watch",
-   "loaded_at": "2026-11-17T08:30:00",
-   "destination_id": "R-01",
-   "destination_name": "Zomato Partner Restaurant – MG Road (demo)",
-   "original_destination_id": "R-01",
+   "loaded_at": "2026-11-13T03:50:00",
+   "destination_id": "R-07",
+   "destination_name": "Zomato Partner Restaurant – Yelahanka (demo)",
+   "original_destination_id": "R-07",
    "redirected": false,
    "redirect_reason": null,
-   "eta_min": 204,
+   "eta_min": 166,
    "is_live_tag": false,
-   "lat": 13.04077,
-   "lng": 77.73914
+   "heat_active": false,
+   "lat": 13.03175,
+   "lng": 77.76302
   },
   {
    "id": "C-007",
@@ -173,161 +217,237 @@
    "product_label": "Leafy greens",
    "emoji": "🥬",
    "weight_kg": 10,
-   "truck_id": "T-3",
+   "truck_id": "T-2",
    "stage": "in_transit",
-   "temp_c": 3.1,
-   "humidity": 89.8,
-   "voc_index": 134,
+   "temp_c": 2.3,
+   "humidity": 36.6,
+   "voc_index": null,
    "door_open": false,
-   "freshness_score": 50.9,
-   "hours_left": 61.1,
-   "hours_left_if_unchanged": 66.8,
-   "status": "watch",
-   "loaded_at": "2026-11-17T02:20:00",
-   "destination_id": "R-04",
-   "destination_name": "Zomato Partner Restaurant – BTM Layout (demo)",
-   "original_destination_id": "R-04",
-   "redirected": false,
-   "redirect_reason": null,
-   "eta_min": 299,
-   "is_live_tag": false,
-   "lat": 12.88677,
-   "lng": 77.67099
-  },
-  {
-   "id": "C-008",
-   "product": "chicken",
-   "product_label": "Chicken",
-   "emoji": "🍗",
-   "weight_kg": 20,
-   "truck_id": "T-3",
-   "stage": "in_transit",
-   "temp_c": 3.3,
-   "humidity": 86.8,
-   "voc_index": 217,
-   "door_open": false,
-   "freshness_score": 31.5,
-   "hours_left": 30.2,
-   "hours_left_if_unchanged": 24.5,
-   "status": "at_risk",
-   "loaded_at": "2026-11-16T22:30:00",
-   "destination_id": "R-07",
-   "destination_name": "Zomato Partner Restaurant – Yelahanka (demo)",
-   "original_destination_id": "R-07",
-   "redirected": false,
-   "redirect_reason": null,
-   "eta_min": 131,
-   "is_live_tag": false,
-   "lat": 12.88677,
-   "lng": 77.67099
-  },
-  {
-   "id": "C-009",
-   "product": "dairy",
-   "product_label": "Dairy (milk)",
-   "emoji": "🥛",
-   "weight_kg": 24,
-   "truck_id": "T-3",
-   "stage": "in_transit",
-   "temp_c": 2.9,
-   "humidity": 89.5,
-   "voc_index": 70,
-   "door_open": false,
-   "freshness_score": 74.9,
-   "hours_left": 125.8,
-   "hours_left_if_unchanged": 143.9,
+   "tvc": 2.43,
+   "tvc_kinetic": 2.43,
+   "tvc_gas": null,
+   "quality_stage": "excellent",
+   "gas": null,
+   "freshness_score": 82.8,
+   "hours_left": 178.1,
+   "hours_left_if_unchanged": 258.1,
    "status": "fresh",
-   "loaded_at": "2026-11-17T16:20:00",
-   "destination_id": "R-10",
-   "destination_name": "Zomato Partner Restaurant – Banashankari (demo)",
-   "original_destination_id": "R-10",
-   "redirected": false,
-   "redirect_reason": null,
-   "eta_min": 345,
-   "is_live_tag": false,
-   "lat": 12.88677,
-   "lng": 77.67099
-  },
-  {
-   "id": "C-010",
-   "product": "dairy",
-   "product_label": "Dairy (milk)",
-   "emoji": "🥛",
-   "weight_kg": 24,
-   "truck_id": "T-1",
-   "stage": "in_transit",
-   "temp_c": 2.9,
-   "humidity": 89.9,
-   "voc_index": 102,
-   "door_open": false,
-   "freshness_score": 62.3,
-   "hours_left": 104.7,
-   "hours_left_if_unchanged": 120.4,
-   "status": "watch",
-   "loaded_at": "2026-11-17T01:30:00",
+   "loaded_at": "2026-11-18T19:30:00",
    "destination_id": "R-01",
    "destination_name": "Zomato Partner Restaurant – MG Road (demo)",
    "original_destination_id": "R-01",
    "redirected": false,
    "redirect_reason": null,
-   "eta_min": 146,
+   "eta_min": 248,
    "is_live_tag": false,
-   "lat": 13.01617,
-   "lng": 77.74895
+   "heat_active": false,
+   "lat": 13.03175,
+   "lng": 77.76302
   },
   {
-   "id": "C-011",
+   "id": "C-008",
+   "product": "dairy",
+   "product_label": "Dairy (curd/yogurt)",
+   "emoji": "🥛",
+   "weight_kg": 24,
+   "truck_id": "T-2",
+   "stage": "in_transit",
+   "temp_c": 2.3,
+   "humidity": 36.6,
+   "voc_index": null,
+   "door_open": false,
+   "tvc": 2.65,
+   "tvc_kinetic": 2.65,
+   "tvc_gas": null,
+   "quality_stage": "excellent",
+   "gas": null,
+   "freshness_score": 76.1,
+   "hours_left": 429.7,
+   "hours_left_if_unchanged": 622.8,
+   "status": "fresh",
+   "loaded_at": "2026-11-12T15:10:00",
+   "destination_id": "R-09",
+   "destination_name": "Zomato Partner Restaurant – KR Puram (demo)",
+   "original_destination_id": "R-09",
+   "redirected": false,
+   "redirect_reason": null,
+   "eta_min": 312,
+   "is_live_tag": false,
+   "heat_active": false,
+   "lat": 13.03175,
+   "lng": 77.76302
+  },
+  {
+   "id": "C-009",
    "product": "chicken",
    "product_label": "Chicken",
    "emoji": "🍗",
    "weight_kg": 20,
    "truck_id": "T-2",
    "stage": "in_transit",
-   "temp_c": 3.0,
-   "humidity": 88.8,
-   "voc_index": 101,
+   "temp_c": 2.3,
+   "humidity": 36.6,
+   "voc_index": 16,
    "door_open": false,
-   "freshness_score": 60.9,
-   "hours_left": 58.4,
-   "hours_left_if_unchanged": 49.5,
+   "tvc": 2.64,
+   "tvc_kinetic": 3.88,
+   "tvc_gas": 1.98,
+   "quality_stage": "excellent",
+   "gas": {
+    "MQ2": 6.48,
+    "MQ3": 12.88,
+    "MQ4": 7.38,
+    "MQ5": 14.05,
+    "MQ135": 13.34,
+    "MQ136": 6.29
+   },
+   "freshness_score": 76.4,
+   "hours_left": 61.5,
+   "hours_left_if_unchanged": 89.2,
+   "status": "fresh",
+   "loaded_at": "2026-11-16T14:00:00",
+   "destination_id": "R-02",
+   "destination_name": "Zomato Partner Restaurant – Marathahalli (demo)",
+   "original_destination_id": "R-02",
+   "redirected": false,
+   "redirect_reason": null,
+   "eta_min": 56,
+   "is_live_tag": false,
+   "heat_active": false,
+   "lat": 13.03175,
+   "lng": 77.76302
+  },
+  {
+   "id": "C-010",
+   "product": "strawberries",
+   "product_label": "Strawberries",
+   "emoji": "🍓",
+   "weight_kg": 8,
+   "truck_id": "T-3",
+   "stage": "in_transit",
+   "temp_c": 3.1,
+   "humidity": 36.6,
+   "voc_index": null,
+   "door_open": false,
+   "tvc": 3.68,
+   "tvc_kinetic": 3.68,
+   "tvc_gas": null,
+   "quality_stage": "good",
+   "gas": null,
+   "freshness_score": 44.1,
+   "hours_left": 59.3,
+   "hours_left_if_unchanged": 74.0,
    "status": "watch",
-   "loaded_at": "2026-11-17T23:20:00",
+   "loaded_at": "2026-11-16T07:40:00",
    "destination_id": "R-06",
    "destination_name": "Zomato Partner Restaurant – Rajajinagar (demo)",
    "original_destination_id": "R-06",
    "redirected": false,
    "redirect_reason": null,
-   "eta_min": 163,
+   "eta_min": 98,
    "is_live_tag": false,
-   "lat": 13.04077,
-   "lng": 77.73914
+   "heat_active": false,
+   "lat": 12.85846,
+   "lng": 77.66167
+  },
+  {
+   "id": "C-011",
+   "product": "dairy",
+   "product_label": "Dairy (curd/yogurt)",
+   "emoji": "🥛",
+   "weight_kg": 24,
+   "truck_id": "T-3",
+   "stage": "in_transit",
+   "temp_c": 3.1,
+   "humidity": 36.6,
+   "voc_index": null,
+   "door_open": false,
+   "tvc": 2.29,
+   "tvc_kinetic": 2.29,
+   "tvc_gas": null,
+   "quality_stage": "excellent",
+   "gas": null,
+   "freshness_score": 87.3,
+   "hours_left": 492.8,
+   "hours_left_if_unchanged": 615.0,
+   "status": "fresh",
+   "loaded_at": "2026-11-14T22:00:00",
+   "destination_id": "R-05",
+   "destination_name": "Zomato Partner Restaurant – JP Nagar (demo)",
+   "original_destination_id": "R-05",
+   "redirected": false,
+   "redirect_reason": null,
+   "eta_min": 299,
+   "is_live_tag": false,
+   "heat_active": false,
+   "lat": 12.85846,
+   "lng": 77.66167
   },
   {
    "id": "C-012",
-   "product": "greens",
-   "product_label": "Leafy greens",
-   "emoji": "🥬",
-   "weight_kg": 10,
+   "product": "dairy",
+   "product_label": "Dairy (curd/yogurt)",
+   "emoji": "🥛",
+   "weight_kg": 24,
    "truck_id": "T-3",
    "stage": "in_transit",
-   "temp_c": 2.9,
-   "humidity": 89.4,
-   "voc_index": 145,
+   "temp_c": 3.1,
+   "humidity": 36.6,
+   "voc_index": null,
    "door_open": false,
-   "freshness_score": 47.1,
-   "hours_left": 56.5,
-   "hours_left_if_unchanged": 62.5,
-   "status": "watch",
-   "loaded_at": "2026-11-16T22:20:00",
-   "destination_id": "R-03",
-   "destination_name": "Zomato Partner Restaurant – Bellandur (demo)",
-   "original_destination_id": "R-03",
+   "tvc": 2.72,
+   "tvc_kinetic": 2.72,
+   "tvc_gas": null,
+   "quality_stage": "excellent",
+   "gas": null,
+   "freshness_score": 73.8,
+   "hours_left": 416.5,
+   "hours_left_if_unchanged": 519.8,
+   "status": "fresh",
+   "loaded_at": "2026-11-16T12:30:00",
+   "destination_id": "R-07",
+   "destination_name": "Zomato Partner Restaurant – Yelahanka (demo)",
+   "original_destination_id": "R-07",
    "redirected": false,
    "redirect_reason": null,
-   "eta_min": 251,
+   "eta_min": 176,
    "is_live_tag": false,
-   "lat": 12.88677,
-   "lng": 77.67099
+   "heat_active": false,
+   "lat": 12.85846,
+   "lng": 77.66167
+  },
+  {
+   "id": "C-013",
+   "product": "strawberries",
+   "product_label": "Strawberries",
+   "emoji": "🍓",
+   "weight_kg": 8,
+   "truck_id": "T-3",
+   "stage": "in_transit",
+   "temp_c": 3.1,
+   "humidity": 36.6,
+   "voc_index": null,
+   "door_open": false,
+   "tvc": 3.01,
+   "tvc_kinetic": 3.01,
+   "tvc_gas": null,
+   "quality_stage": "excellent",
+   "gas": null,
+   "freshness_score": 64.8,
+   "hours_left": 87.0,
+   "hours_left_if_unchanged": 108.6,
+   "status": "fresh",
+   "loaded_at": "2026-11-18T10:00:00",
+   "destination_id": "R-07",
+   "destination_name": "Zomato Partner Restaurant – Yelahanka (demo)",
+   "original_destination_id": "R-07",
+   "redirected": false,
+   "redirect_reason": null,
+   "eta_min": 176,
+   "is_live_tag": false,
+   "heat_active": false,
+   "lat": 12.85846,
+   "lng": 77.66167
   }
  ],
  "trucks": [
@@ -337,56 +457,69 @@
    "driver": "Ravi K. (demo)",
    "color": "#2563EB",
    "status": "en_route",
-   "lat": 13.01617,
-   "lng": 77.74895,
+   "lat": 13.02708,
+   "lng": 77.76936,
    "compressor_ok": true,
    "door_open": false,
-   "setpoint_c": 3,
+   "temp_trace": "S5-Rear_Bottom",
+   "air_temp_c": 2.3,
    "stops": [
     {
-     "location_id": "R-02",
+     "location_id": "R-08",
      "crate_ids": [
       "C-004"
      ],
-     "eta_min": 44
+     "eta_min": 87
     },
     {
-     "location_id": "R-09",
+     "location_id": "R-05",
+     "crate_ids": [
+      "C-003"
+     ],
+     "eta_min": 153
+    },
+    {
+     "location_id": "R-06",
      "crate_ids": [
       "C-002"
      ],
-     "eta_min": 82
+     "eta_min": 216
     },
     {
-     "location_id": "R-01",
+     "location_id": "R-03",
      "crate_ids": [
-      "C-010"
+      "C-005"
      ],
-     "eta_min": 146
+     "eta_min": 305
     }
    ],
    "route_points": [
     [
-     13.01617,
-     77.74895
+     13.02708,
+     77.76936
     ],
     [
-     12.9591,
-     77.6974
+     12.901,
+     77.686
     ],
     [
-     13.0076,
-     77.695
+     12.9063,
+     77.5857
     ],
     [
-     12.9756,
-     77.605
+     12.991,
+     77.5525
+    ],
+    [
+     12.926,
+     77.6762
     ]
    ],
    "crate_ids": [
     "C-002",
+    "C-003",
     "C-004",
-    "C-010"
+    "C-005"
    ]
   },
   {
@@ -395,68 +528,69 @@
    "driver": "Imran S. (demo)",
    "color": "#9333EA",
    "status": "en_route",
-   "lat": 13.04077,
-   "lng": 77.73914,
+   "lat": 13.03175,
+   "lng": 77.76302,
    "compressor_ok": true,
    "door_open": false,
-   "setpoint_c": 3,
+   "temp_trace": "S1-Rear_Bottom",
+   "air_temp_c": 2.3,
    "stops": [
     {
-     "location_id": "DS-04",
+     "location_id": "R-02",
      "crate_ids": [
-      "C-003"
+      "C-009"
      ],
-     "eta_min": 41
-    },
-    {
-     "location_id": "R-06",
-     "crate_ids": [
-      "C-011"
-     ],
-     "eta_min": 163
-    },
-    {
-     "location_id": "R-01",
-     "crate_ids": [
-      "C-006"
-     ],
-     "eta_min": 204
+     "eta_min": 56
     },
     {
      "location_id": "R-07",
      "crate_ids": [
-      "C-005"
+      "C-006"
      ],
-     "eta_min": 287
+     "eta_min": 166
+    },
+    {
+     "location_id": "R-01",
+     "crate_ids": [
+      "C-007"
+     ],
+     "eta_min": 248
+    },
+    {
+     "location_id": "R-09",
+     "crate_ids": [
+      "C-008"
+     ],
+     "eta_min": 312
     }
    ],
    "route_points": [
     [
-     13.04077,
-     77.73914
+     13.03175,
+     77.76302
     ],
     [
-     12.9698,
-     77.75
+     12.9591,
+     77.6974
     ],
     [
-     12.991,
-     77.5525
+     13.1007,
+     77.5963
     ],
     [
      12.9756,
      77.605
     ],
     [
-     13.1007,
-     77.5963
+     13.0076,
+     77.695
     ]
    ],
    "crate_ids": [
-    "C-003",
-    "C-005",
     "C-006",
-    "C-011"
+    "C-007",
+    "C-008",
+    "C-009"
    ]
   },
   {
@@ -465,68 +599,59 @@
    "driver": "Suresh M. (demo)",
    "color": "#0D9488",
    "status": "en_route",
-   "lat": 12.88677,
-   "lng": 77.67099,
+   "lat": 12.85846,
+   "lng": 77.66167,
    "compressor_ok": true,
    "door_open": false,
-   "setpoint_c": 3,
+   "temp_trace": "S3-Rear_Top",
+   "air_temp_c": 3.1,
    "stops": [
+    {
+     "location_id": "R-06",
+     "crate_ids": [
+      "C-010"
+     ],
+     "eta_min": 98
+    },
     {
      "location_id": "R-07",
      "crate_ids": [
-      "C-008"
+      "C-012",
+      "C-013"
      ],
-     "eta_min": 131
+     "eta_min": 176
     },
     {
-     "location_id": "R-03",
+     "location_id": "R-05",
      "crate_ids": [
-      "C-012"
-     ],
-     "eta_min": 251
-    },
-    {
-     "location_id": "R-04",
-     "crate_ids": [
-      "C-007"
+      "C-011"
      ],
      "eta_min": 299
-    },
-    {
-     "location_id": "R-10",
-     "crate_ids": [
-      "C-009"
-     ],
-     "eta_min": 345
     }
    ],
    "route_points": [
     [
-     12.88677,
-     77.67099
+     12.85846,
+     77.66167
+    ],
+    [
+     12.991,
+     77.5525
     ],
     [
      13.1007,
      77.5963
     ],
     [
-     12.926,
-     77.6762
-    ],
-    [
-     12.9166,
-     77.6101
-    ],
-    [
-     12.9255,
-     77.5468
+     12.9063,
+     77.5857
     ]
    ],
    "crate_ids": [
-    "C-007",
-    "C-008",
-    "C-009",
-    "C-012"
+    "C-010",
+    "C-011",
+    "C-012",
+    "C-013"
    ]
   }
  ],
@@ -534,256 +659,222 @@
   "fefo": [
    {
     "rank": 1,
-    "crate_id": "C-003",
-    "product": "chicken",
-    "hours_left": 22.6,
-    "destination_id": "DS-04",
+    "crate_id": "C-010",
+    "product": "strawberries",
+    "hours_left": 59.3,
+    "destination_id": "R-06",
     "feasible": true
    },
    {
     "rank": 2,
-    "crate_id": "C-008",
+    "crate_id": "C-009",
     "product": "chicken",
-    "hours_left": 30.2,
-    "destination_id": "R-07",
+    "hours_left": 61.5,
+    "destination_id": "R-02",
     "feasible": true
    },
    {
     "rank": 3,
     "crate_id": "C-004",
     "product": "chicken",
-    "hours_left": 50.9,
-    "destination_id": "R-02",
+    "hours_left": 67.9,
+    "destination_id": "R-08",
     "feasible": true
    },
    {
     "rank": 4,
-    "crate_id": "C-012",
-    "product": "greens",
-    "hours_left": 56.5,
-    "destination_id": "R-03",
+    "crate_id": "C-013",
+    "product": "strawberries",
+    "hours_left": 87.0,
+    "destination_id": "R-07",
     "feasible": true
    },
    {
     "rank": 5,
-    "crate_id": "C-011",
-    "product": "chicken",
-    "hours_left": 58.4,
-    "destination_id": "R-06",
+    "crate_id": "C-006",
+    "product": "greens",
+    "hours_left": 93.8,
+    "destination_id": "R-07",
     "feasible": true
    },
    {
     "rank": 6,
     "crate_id": "C-007",
     "product": "greens",
-    "hours_left": 61.1,
-    "destination_id": "R-04",
+    "hours_left": 178.1,
+    "destination_id": "R-01",
     "feasible": true
    },
    {
     "rank": 7,
-    "crate_id": "C-006",
-    "product": "greens",
-    "hours_left": 67.1,
-    "destination_id": "R-01",
+    "crate_id": "C-003",
+    "product": "dairy",
+    "hours_left": 179.0,
+    "destination_id": "R-05",
     "feasible": true
    },
    {
     "rank": 8,
-    "crate_id": "C-002",
-    "product": "greens",
-    "hours_left": 71.4,
-    "destination_id": "R-09",
-    "feasible": true
-   },
-   {
-    "rank": 9,
-    "crate_id": "C-005",
+    "crate_id": "C-012",
     "product": "dairy",
-    "hours_left": 100.5,
+    "hours_left": 416.5,
     "destination_id": "R-07",
     "feasible": true
    },
    {
-    "rank": 10,
-    "crate_id": "C-010",
+    "rank": 9,
+    "crate_id": "C-008",
     "product": "dairy",
-    "hours_left": 104.7,
-    "destination_id": "R-01",
+    "hours_left": 429.7,
+    "destination_id": "R-09",
+    "feasible": true
+   },
+   {
+    "rank": 10,
+    "crate_id": "C-002",
+    "product": "dairy",
+    "hours_left": 487.8,
+    "destination_id": "R-06",
     "feasible": true
    },
    {
     "rank": 11,
-    "crate_id": "C-009",
+    "crate_id": "C-011",
     "product": "dairy",
-    "hours_left": 125.8,
-    "destination_id": "R-10",
+    "hours_left": 492.8,
+    "destination_id": "R-05",
+    "feasible": true
+   },
+   {
+    "rank": 12,
+    "crate_id": "C-005",
+    "product": "dairy",
+    "hours_left": 535.3,
+    "destination_id": "R-03",
     "feasible": true
    }
   ],
   "fifo": [
    {
     "rank": 1,
-    "crate_id": "C-005",
-    "product": "dairy",
-    "hours_left": 100.5,
-    "destination_id": "R-07",
-    "feasible": true,
-    "would_be_rejected": false
-   },
-   {
-    "rank": 2,
-    "crate_id": "C-012",
-    "product": "greens",
-    "hours_left": 56.5,
-    "destination_id": "R-03",
-    "feasible": true,
-    "would_be_rejected": false
-   },
-   {
-    "rank": 3,
     "crate_id": "C-008",
-    "product": "chicken",
-    "hours_left": 30.2,
-    "destination_id": "R-07",
-    "feasible": true,
-    "would_be_rejected": false
-   },
-   {
-    "rank": 4,
-    "crate_id": "C-003",
-    "product": "chicken",
-    "hours_left": 22.6,
-    "destination_id": "R-06",
-    "feasible": false,
-    "would_be_rejected": true
-   },
-   {
-    "rank": 5,
-    "crate_id": "C-010",
     "product": "dairy",
-    "hours_left": 104.7,
-    "destination_id": "R-01",
-    "feasible": true,
-    "would_be_rejected": false
-   },
-   {
-    "rank": 6,
-    "crate_id": "C-007",
-    "product": "greens",
-    "hours_left": 61.1,
-    "destination_id": "R-04",
-    "feasible": true,
-    "would_be_rejected": false
-   },
-   {
-    "rank": 7,
-    "crate_id": "C-006",
-    "product": "greens",
-    "hours_left": 67.1,
-    "destination_id": "R-01",
-    "feasible": true,
-    "would_be_rejected": false
-   },
-   {
-    "rank": 8,
-    "crate_id": "C-002",
-    "product": "greens",
-    "hours_left": 71.4,
+    "hours_left": 429.7,
     "destination_id": "R-09",
     "feasible": true,
     "would_be_rejected": false
    },
    {
-    "rank": 9,
-    "crate_id": "C-009",
-    "product": "dairy",
-    "hours_left": 125.8,
-    "destination_id": "R-10",
+    "rank": 2,
+    "crate_id": "C-006",
+    "product": "greens",
+    "hours_left": 93.8,
+    "destination_id": "R-07",
     "feasible": true,
     "would_be_rejected": false
    },
    {
-    "rank": 10,
-    "crate_id": "C-004",
+    "rank": 3,
+    "crate_id": "C-011",
+    "product": "dairy",
+    "hours_left": 492.8,
+    "destination_id": "R-05",
+    "feasible": true,
+    "would_be_rejected": false
+   },
+   {
+    "rank": 4,
+    "crate_id": "C-002",
+    "product": "dairy",
+    "hours_left": 487.8,
+    "destination_id": "R-06",
+    "feasible": true,
+    "would_be_rejected": false
+   },
+   {
+    "rank": 5,
+    "crate_id": "C-010",
+    "product": "strawberries",
+    "hours_left": 59.3,
+    "destination_id": "R-06",
+    "feasible": true,
+    "would_be_rejected": false
+   },
+   {
+    "rank": 6,
+    "crate_id": "C-003",
+    "product": "dairy",
+    "hours_left": 179.0,
+    "destination_id": "R-05",
+    "feasible": true,
+    "would_be_rejected": false
+   },
+   {
+    "rank": 7,
+    "crate_id": "C-012",
+    "product": "dairy",
+    "hours_left": 416.5,
+    "destination_id": "R-07",
+    "feasible": true,
+    "would_be_rejected": false
+   },
+   {
+    "rank": 8,
+    "crate_id": "C-009",
     "product": "chicken",
-    "hours_left": 50.9,
+    "hours_left": 61.5,
     "destination_id": "R-02",
     "feasible": true,
     "would_be_rejected": false
    },
    {
+    "rank": 9,
+    "crate_id": "C-013",
+    "product": "strawberries",
+    "hours_left": 87.0,
+    "destination_id": "R-07",
+    "feasible": true,
+    "would_be_rejected": false
+   },
+   {
+    "rank": 10,
+    "crate_id": "C-005",
+    "product": "dairy",
+    "hours_left": 535.3,
+    "destination_id": "R-03",
+    "feasible": true,
+    "would_be_rejected": false
+   },
+   {
     "rank": 11,
-    "crate_id": "C-011",
+    "crate_id": "C-004",
     "product": "chicken",
-    "hours_left": 58.4,
-    "destination_id": "R-06",
+    "hours_left": 67.9,
+    "destination_id": "R-08",
+    "feasible": true,
+    "would_be_rejected": false
+   },
+   {
+    "rank": 12,
+    "crate_id": "C-007",
+    "product": "greens",
+    "hours_left": 178.1,
+    "destination_id": "R-01",
     "feasible": true,
     "would_be_rejected": false
    }
   ]
  },
- "alerts": [
-  {
-   "id": "A-2",
-   "ts": "2026-11-19T08:36:00",
-   "type": "rerouted",
-   "severity": "info",
-   "crate_id": "C-003",
-   "truck_id": "T-2",
-   "message": "C-003 rerouted to Blinkit Dark Store – Whitefield (demo)"
-  },
-  {
-   "id": "A-1",
-   "ts": "2026-11-19T08:32:00",
-   "type": "temp_excursion",
-   "severity": "warning",
-   "crate_id": "C-003",
-   "truck_id": "T-2",
-   "message": "C-003 Chicken at 12.4 °C (safe ≤ 5 °C)"
-  }
- ],
+ "alerts": [],
  "new_alerts": [],
- "redirects": [
-  {
-   "id": "RD-1",
-   "ts": "2026-11-19T08:36:00",
-   "crate_id": "C-003",
-   "truck_id": "T-2",
-   "product": "chicken",
-   "weight_kg": 20,
-   "hours_left": 25.6,
-   "decision": "REDIRECT",
-   "from_location_id": "R-06",
-   "to_location_id": "DS-04",
-   "from_point": [
-    13.05103,
-    77.73757
-   ],
-   "travel_min": 47,
-   "reason": "Only 26 h left; it would reach Zomato Partner Restaurant – Rajajinagar (demo) with ~24 h, below the 24 h it needs. Blinkit Dark Store – Whitefield (demo) is 47 min away and sells 45 kg Chicken/day.",
-   "alternatives": [
-    {
-     "location_id": "DS-01",
-     "name": "Blinkit Dark Store – Koramangala (demo)",
-     "score": 0.54
-    },
-    {
-     "location_id": "DS-02",
-     "name": "Blinkit Dark Store – Indiranagar (demo)",
-     "score": 0.52
-    }
-   ],
-   "kg_saved": 20
-  }
- ],
+ "redirects": [],
  "new_redirects": [],
  "deliveries": [],
  "impact": {
-  "crates_redirected": 1,
+  "crates_redirected": 0,
   "crates_donated": 0,
-  "kg_saved": 20,
-  "rejections_avoided": 1,
+  "kg_saved": 0,
+  "rejections_avoided": 0,
   "deliveries_completed": 0,
   "deliveries_rejected": 0,
   "kg_wasted": 0

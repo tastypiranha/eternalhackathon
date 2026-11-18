@@ -11,7 +11,8 @@
     "demand_kg_per_day": {
       "chicken": 0,
       "dairy": 0,
-      "greens": 0
+      "greens": 0,
+      "strawberries": 0
     }
   },
   {
@@ -26,7 +27,8 @@
     "demand_kg_per_day": {
       "chicken": 0,
       "dairy": 0,
-      "greens": 0
+      "greens": 0,
+      "strawberries": 0
     }
   },
   {
@@ -41,7 +43,8 @@
     "demand_kg_per_day": {
       "chicken": 40,
       "dairy": 60,
-      "greens": 30
+      "greens": 30,
+      "strawberries": 15
     }
   },
   {
@@ -56,7 +59,8 @@
     "demand_kg_per_day": {
       "chicken": 35,
       "dairy": 50,
-      "greens": 25
+      "greens": 25,
+      "strawberries": 15
     }
   },
   {
@@ -71,7 +75,8 @@
     "demand_kg_per_day": {
       "chicken": 30,
       "dairy": 55,
-      "greens": 30
+      "greens": 30,
+      "strawberries": 15
     }
   },
   {
@@ -86,7 +91,8 @@
     "demand_kg_per_day": {
       "chicken": 45,
       "dairy": 60,
-      "greens": 20
+      "greens": 20,
+      "strawberries": 15
     }
   },
   {
@@ -101,7 +107,8 @@
     "demand_kg_per_day": {
       "chicken": 25,
       "dairy": 45,
-      "greens": 35
+      "greens": 35,
+      "strawberries": 15
     }
   },
   {
@@ -116,7 +123,8 @@
     "demand_kg_per_day": {
       "chicken": 20,
       "dairy": 40,
-      "greens": 30
+      "greens": 30,
+      "strawberries": 15
     }
   },
   {
@@ -131,7 +139,8 @@
     "demand_kg_per_day": {
       "chicken": 30,
       "dairy": 35,
-      "greens": 15
+      "greens": 15,
+      "strawberries": 15
     }
   },
   {
@@ -146,7 +155,8 @@
     "demand_kg_per_day": {
       "chicken": 35,
       "dairy": 45,
-      "greens": 20
+      "greens": 20,
+      "strawberries": 15
     }
   },
   {
@@ -161,7 +171,8 @@
     "demand_kg_per_day": {
       "chicken": 30,
       "dairy": 20,
-      "greens": 15
+      "greens": 15,
+      "strawberries": 5
     }
   },
   {
@@ -176,7 +187,8 @@
     "demand_kg_per_day": {
       "chicken": 25,
       "dairy": 15,
-      "greens": 10
+      "greens": 10,
+      "strawberries": 5
     }
   },
   {
@@ -191,7 +203,8 @@
     "demand_kg_per_day": {
       "chicken": 20,
       "dairy": 20,
-      "greens": 15
+      "greens": 15,
+      "strawberries": 5
     }
   },
   {
@@ -206,7 +219,8 @@
     "demand_kg_per_day": {
       "chicken": 25,
       "dairy": 10,
-      "greens": 20
+      "greens": 20,
+      "strawberries": 5
     }
   },
   {
@@ -221,7 +235,8 @@
     "demand_kg_per_day": {
       "chicken": 30,
       "dairy": 15,
-      "greens": 10
+      "greens": 10,
+      "strawberries": 5
     }
   },
   {
@@ -236,7 +251,8 @@
     "demand_kg_per_day": {
       "chicken": 40,
       "dairy": 15,
-      "greens": 10
+      "greens": 10,
+      "strawberries": 5
     }
   },
   {
@@ -251,7 +267,8 @@
     "demand_kg_per_day": {
       "chicken": 20,
       "dairy": 25,
-      "greens": 10
+      "greens": 10,
+      "strawberries": 5
     }
   },
   {
@@ -266,7 +283,8 @@
     "demand_kg_per_day": {
       "chicken": 25,
       "dairy": 20,
-      "greens": 15
+      "greens": 15,
+      "strawberries": 5
     }
   },
   {
@@ -281,7 +299,8 @@
     "demand_kg_per_day": {
       "chicken": 20,
       "dairy": 15,
-      "greens": 20
+      "greens": 20,
+      "strawberries": 5
     }
   },
   {
@@ -296,7 +315,8 @@
     "demand_kg_per_day": {
       "chicken": 25,
       "dairy": 20,
-      "greens": 15
+      "greens": 15,
+      "strawberries": 5
     }
   },
   {
@@ -311,7 +331,8 @@
     "demand_kg_per_day": {
       "chicken": 50,
       "dairy": 50,
-      "greens": 50
+      "greens": 50,
+      "strawberries": 20
     }
   },
   {
@@ -326,7 +347,8 @@
     "demand_kg_per_day": {
       "chicken": 50,
       "dairy": 50,
-      "greens": 50
+      "greens": 50,
+      "strawberries": 20
     }
   }
 ]

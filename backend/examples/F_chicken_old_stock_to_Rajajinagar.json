@@ -1,0 +1,19 @@
+{
+ "product": "chicken",
+ "initial_tvc": 4.3,
+ "readings": [
+  {
+   "minute": 0,
+   "temp_c": 3
+  },
+  {
+   "minute": 60,
+   "temp_c": 3
+  }
+ ],
+ "location": {
+  "lat": 13.0707,
+  "lng": 77.7982
+ },
+ "destination_id": "R-06"
+}

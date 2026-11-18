@@ -1,0 +1,105 @@
+{
+ "product": "chicken",
+ "readings": [
+  {
+   "minute": 0,
+   "temp_c": 2
+  },
+  {
+   "minute": 60,
+   "temp_c": 2
+  },
+  {
+   "minute": 120,
+   "temp_c": 2
+  },
+  {
+   "minute": 180,
+   "temp_c": 2
+  },
+  {
+   "minute": 240,
+   "temp_c": 2
+  },
+  {
+   "minute": 300,
+   "temp_c": 2
+  },
+  {
+   "minute": 360,
+   "temp_c": 2
+  },
+  {
+   "minute": 420,
+   "temp_c": 2
+  },
+  {
+   "minute": 480,
+   "temp_c": 2
+  },
+  {
+   "minute": 540,
+   "temp_c": 2
+  },
+  {
+   "minute": 600,
+   "temp_c": 2
+  },
+  {
+   "minute": 660,
+   "temp_c": 2
+  },
+  {
+   "minute": 720,
+   "temp_c": 2
+  },
+  {
+   "minute": 780,
+   "temp_c": 2
+  },
+  {
+   "minute": 840,
+   "temp_c": 2
+  },
+  {
+   "minute": 900,
+   "temp_c": 2
+  },
+  {
+   "minute": 960,
+   "temp_c": 2
+  },
+  {
+   "minute": 1020,
+   "temp_c": 2
+  },
+  {
+   "minute": 1080,
+   "temp_c": 2
+  },
+  {
+   "minute": 1140,
+   "temp_c": 2
+  },
+  {
+   "minute": 1200,
+   "temp_c": 2
+  },
+  {
+   "minute": 1260,
+   "temp_c": 2
+  },
+  {
+   "minute": 1320,
+   "temp_c": 2
+  },
+  {
+   "minute": 1380,
+   "temp_c": 2
+  },
+  {
+   "minute": 1440,
+   "temp_c": 2
+  }
+ ]
+}

@@ -12,7 +12,8 @@
    "demand_kg_per_day": {
     "chicken": 0,
     "dairy": 0,
-    "greens": 0
+    "greens": 0,
+    "strawberries": 0
    }
   },
   {
@@ -27,7 +28,8 @@
    "demand_kg_per_day": {
     "chicken": 0,
     "dairy": 0,
-    "greens": 0
+    "greens": 0,
+    "strawberries": 0
    }
   },
   {
@@ -42,7 +44,8 @@
    "demand_kg_per_day": {
     "chicken": 40,
     "dairy": 60,
-    "greens": 30
+    "greens": 30,
+    "strawberries": 15
    }
   },
   {
@@ -57,7 +60,8 @@
    "demand_kg_per_day": {
     "chicken": 35,
     "dairy": 50,
-    "greens": 25
+    "greens": 25,
+    "strawberries": 15
    }
   },
   {
@@ -72,7 +76,8 @@
    "demand_kg_per_day": {
     "chicken": 30,
     "dairy": 55,
-    "greens": 30
+    "greens": 30,
+    "strawberries": 15
    }
   },
   {
@@ -87,7 +92,8 @@
    "demand_kg_per_day": {
     "chicken": 45,
     "dairy": 60,
-    "greens": 20
+    "greens": 20,
+    "strawberries": 15
    }
   },
   {
@@ -102,7 +108,8 @@
    "demand_kg_per_day": {
     "chicken": 25,
     "dairy": 45,
-    "greens": 35
+    "greens": 35,
+    "strawberries": 15
    }
   },
   {
@@ -117,7 +124,8 @@
    "demand_kg_per_day": {
     "chicken": 20,
     "dairy": 40,
-    "greens": 30
+    "greens": 30,
+    "strawberries": 15
    }
   },
   {
@@ -132,7 +140,8 @@
    "demand_kg_per_day": {
     "chicken": 30,
     "dairy": 35,
-    "greens": 15
+    "greens": 15,
+    "strawberries": 15
    }
   },
   {
@@ -147,7 +156,8 @@
    "demand_kg_per_day": {
     "chicken": 35,
     "dairy": 45,
-    "greens": 20
+    "greens": 20,
+    "strawberries": 15
    }
   },
   {
@@ -162,7 +172,8 @@
    "demand_kg_per_day": {
     "chicken": 30,
     "dairy": 20,
-    "greens": 15
+    "greens": 15,
+    "strawberries": 5
    }
   },
   {
@@ -177,7 +188,8 @@
    "demand_kg_per_day": {
     "chicken": 25,
     "dairy": 15,
-    "greens": 10
+    "greens": 10,
+    "strawberries": 5
    }
   },
   {
@@ -192,7 +204,8 @@
    "demand_kg_per_day": {
     "chicken": 20,
     "dairy": 20,
-    "greens": 15
+    "greens": 15,
+    "strawberries": 5
    }
   },
   {
@@ -207,7 +220,8 @@
    "demand_kg_per_day": {
     "chicken": 25,
     "dairy": 10,
-    "greens": 20
+    "greens": 20,
+    "strawberries": 5
    }
   },
   {
@@ -222,7 +236,8 @@
    "demand_kg_per_day": {
     "chicken": 30,
     "dairy": 15,
-    "greens": 10
+    "greens": 10,
+    "strawberries": 5
    }
   },
   {
@@ -237,7 +252,8 @@
    "demand_kg_per_day": {
     "chicken": 40,
     "dairy": 15,
-    "greens": 10
+    "greens": 10,
+    "strawberries": 5
    }
   },
   {
@@ -252,7 +268,8 @@
    "demand_kg_per_day": {
     "chicken": 20,
     "dairy": 25,
-    "greens": 10
+    "greens": 10,
+    "strawberries": 5
    }
   },
   {
@@ -267,7 +284,8 @@
    "demand_kg_per_day": {
     "chicken": 25,
     "dairy": 20,
-    "greens": 15
+    "greens": 15,
+    "strawberries": 5
    }
   },
   {
@@ -282,7 +300,8 @@
    "demand_kg_per_day": {
     "chicken": 20,
     "dairy": 15,
-    "greens": 20
+    "greens": 20,
+    "strawberries": 5
    }
   },
   {
@@ -297,7 +316,8 @@
    "demand_kg_per_day": {
     "chicken": 25,
     "dairy": 20,
-    "greens": 15
+    "greens": 15,
+    "strawberries": 5
    }
   },
   {
@@ -312,7 +332,8 @@
    "demand_kg_per_day": {
     "chicken": 50,
     "dairy": 50,
-    "greens": 50
+    "greens": 50,
+    "strawberries": 20
    }
   },
   {
@@ -327,7 +348,8 @@
    "demand_kg_per_day": {
     "chicken": 50,
     "dairy": 50,
-    "greens": 50
+    "greens": 50,
+    "strawberries": 20
    }
   }
  ],
@@ -364,38 +386,119 @@
   }
  ],
  "products": {
+  "beef": {
+   "id": "beef",
+   "label": "Beef",
+   "emoji": "🥩",
+   "weight_kg": 20,
+   "gas_model": true,
+   "simulate": false,
+   "ratkowsky_b": 0.009871,
+   "foodkeeper_entry": "Beef (steaks)",
+   "foodkeeper_fridge_days": [
+    3.0,
+    5.0
+   ],
+   "model_shelf_life_days_at_ref": 9.0,
+   "max_safe_c": 4.4,
+   "t_ref_c": 4.4
+  },
   "chicken": {
    "id": "chicken",
    "label": "Chicken",
    "emoji": "🍗",
-   "t_ref_c": 2,
-   "shelf_life_ref_h": 96,
-   "ea_kj_mol": 100,
-   "max_safe_c": 5,
-   "shock_penalty": 0.01,
-   "weight_kg": 20
+   "weight_kg": 20,
+   "gas_model": true,
+   "simulate": true,
+   "ratkowsky_b": 0.016119,
+   "foodkeeper_entry": "Chicken (whole)",
+   "foodkeeper_fridge_days": [
+    1.0,
+    2.0
+   ],
+   "model_shelf_life_days_at_ref": 3.4,
+   "max_safe_c": 4.4,
+   "t_ref_c": 4.4
   },
   "dairy": {
    "id": "dairy",
-   "label": "Dairy (milk)",
+   "label": "Dairy (curd/yogurt)",
    "emoji": "🥛",
-   "t_ref_c": 4,
-   "shelf_life_ref_h": 168,
-   "ea_kj_mol": 80,
-   "max_safe_c": 7,
-   "shock_penalty": 0.01,
-   "weight_kg": 24
+   "weight_kg": 24,
+   "gas_model": false,
+   "simulate": true,
+   "ratkowsky_b": 0.006092,
+   "foodkeeper_entry": "Yogurt",
+   "foodkeeper_fridge_days": [
+    7.0,
+    14.0
+   ],
+   "model_shelf_life_days_at_ref": 23.5,
+   "max_safe_c": 4.4,
+   "t_ref_c": 4.4
   },
   "greens": {
    "id": "greens",
    "label": "Leafy greens",
    "emoji": "🥬",
-   "t_ref_c": 4,
-   "shelf_life_ref_h": 120,
-   "ea_kj_mol": 60,
-   "max_safe_c": 8,
-   "shock_penalty": 0.05,
-   "weight_kg": 10
+   "weight_kg": 10,
+   "gas_model": false,
+   "simulate": true,
+   "ratkowsky_b": 0.009871,
+   "foodkeeper_entry": "Bagged greens (leaf, spinach, lettuce, etc.)",
+   "foodkeeper_fridge_days": [
+    3.0,
+    5.0
+   ],
+   "model_shelf_life_days_at_ref": 9.0,
+   "max_safe_c": 4.4,
+   "t_ref_c": 4.4
+  },
+  "strawberries": {
+   "id": "strawberries",
+   "label": "Strawberries",
+   "emoji": "🍓",
+   "weight_kg": 8,
+   "gas_model": false,
+   "simulate": true,
+   "ratkowsky_b": 0.012486,
+   "foodkeeper_entry": "Strawberries",
+   "foodkeeper_fridge_days": [
+    2.0,
+    3.0
+   ],
+   "model_shelf_life_days_at_ref": 5.6,
+   "max_safe_c": 4.4,
+   "t_ref_c": 4.4
+  }
+ },
+ "stage_thresholds_log_cfu": [
+  3.11,
+  4.05,
+  5.1
+ ],
+ "assumptions": {
+  "_note": "Operational assumptions. No public dataset exists for these; replace with Hyperpure / Blinkit / Zomato data in a pilot. Locations, demand and truck/driver details are in locations.json and trucks.json and are also demo assumptions.",
+  "truck_speed_kmh": 15,
+  "road_factor": 1.3,
+  "stop_service_min": 10,
+  "truck_wait_ticks": 15,
+  "loading_dock_dwell_min": [
+   20,
+   60
+  ],
+  "crates_per_truck": 4,
+  "destination_min_hours_on_arrival": {
+   "restaurant": 24,
+   "dark_store": 8,
+   "food_bank": 2
+  },
+  "redirect_score_weights": {
+   "demand_match": 0.4,
+   "time_margin": 0.3,
+   "distance_penalty": 0.2,
+   "type_bonus_restaurant": 0.1,
+   "type_bonus_dark_store": 0.05
   }
  }
 }

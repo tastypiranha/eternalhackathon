@@ -1,5 +1,6 @@
-"""Journey report builder (master plan 6.9 Journey object)."""
+"""Journey report builder (master plan 6.9 Journey object). Life is measured in hours at the reference temperature."""
 import db
+import model as M
 from config import STAGE_LABELS
 
 MAX_POINTS = 400
@@ -14,19 +15,20 @@ def build(world, crate_id):
     if crate is None:
         return None
     p = crate.p
-    sl = p["shelf_life_ref_h"]
+    mu_ref = M.mu(M.REF_T, crate.product)
+    sl = (M.SPOIL - crate.initial_tvc) / mu_ref  # total life in hours at the reference temperature
     limit = p["max_safe_c"]
     rows = db.get_readings(crate_id)
 
     # ---- stage blocks (consecutive readings with the same stage + truck) ----
     blocks = []
-    prev_consumed = crate.initial_consumed
+    prev_tvc = crate.initial_tvc
     for r in rows:
         key = (r["stage"], r["truck_id"])
         if not blocks or blocks[-1]["key"] != key:
-            blocks.append({"key": key, "rows": [], "consumed_before": prev_consumed})
+            blocks.append({"key": key, "rows": [], "tvc_before": prev_tvc})
         blocks[-1]["rows"].append(r)
-        prev_consumed = r["consumed"]
+        prev_tvc = r["tvc"]
 
     stages = []
     for b in blocks:
@@ -46,7 +48,7 @@ def build(world, crate_id):
             "max_temp_c": round(max(temps), 1),
             "avg_humidity": round(sum(r["humidity"] for r in rs) / len(rs), 1),
             "minutes_above_limit": round(sum(r["minutes"] for r in rs if r["temp_c"] > limit)),
-            "life_used_h": round((rs[-1]["consumed"] - b["consumed_before"]) * sl, 1),
+            "life_used_h": round((rs[-1]["tvc"] - b["tvc_before"]) / mu_ref, 1),
             "extra_loss_h": round(sum(r["extra_loss_h"] for r in rs), 1),
         })
 
@@ -88,7 +90,8 @@ def build(world, crate_id):
         picked.append(rows[-1])
     readings = [
         {"ts": r["ts"], "temp_c": round(r["temp_c"], 1), "humidity": round(r["humidity"], 1),
-         "voc_index": round(r["voc_index"]), "freshness_score": r["freshness_score"], "stage": r["stage"]}
+         "voc_index": None if r["voc_index"] is None else round(r["voc_index"]),
+         "tvc": round(r["tvc"], 3), "freshness_score": r["freshness_score"], "stage": r["stage"]}
         for r in picked
     ]
 
@@ -99,16 +102,22 @@ def build(world, crate_id):
     return {
         "crate": crate_d,
         "product": {"id": p["id"], "label": p["label"], "t_ref_c": p["t_ref_c"],
-                    "max_safe_c": p["max_safe_c"], "shelf_life_ref_h": sl},
+                    "max_safe_c": p["max_safe_c"], "shelf_life_ref_h": round(sl, 1),
+                    "foodkeeper_entry": p["foodkeeper_entry"], "foodkeeper_fridge_days": p["foodkeeper_fridge_days"]},
         "summary": {
             "picked_up_at": rows[0]["ts"] if rows else crate.loaded_at,
-            "total_life_h": sl,
-            "life_used_h": round(crate.consumed * sl, 1),
+            "total_life_h": round(sl, 1),
+            "life_used_h": round((crate.tvc - crate.initial_tvc) / mu_ref, 1),
+            "tvc": round(crate.tvc, 2), "initial_tvc": round(crate.initial_tvc, 2),
+            "tvc_kinetic": round(crate.tvc_kin, 2), "tvc_gas": None if crate.tvc_gas is None else round(crate.tvc_gas, 2),
+            "quality_stage": crate.stage_name,
             "extra_loss_h": round(total_extra, 1),
             "hours_left": crate.hours_left,
             "freshness_score": crate.freshness_score,
             "status": crate.status,
         },
+        "thresholds_log_cfu": M.THRESHOLDS,
+        "stage_names": M.STAGES,
         "stages": stages,
         "readings": readings,
         "excursions": excursions,

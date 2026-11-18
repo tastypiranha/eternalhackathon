@@ -1,0 +1,65 @@
+{
+ "A_chicken_cold_24h": {
+  "tvc_estimate_log_cfu": 2.504,
+  "quality_stage": "excellent",
+  "status": "fresh",
+  "hours_left_at_reference_temp": 65.0,
+  "hours_left_if_temperature_stays": 99.9,
+  "minutes_above_safe_temp": 0,
+  "extra_life_lost_to_heat_h": 0.0,
+  "recommendation": null
+ },
+ "B_chicken_24h_with_6h_at_15C": {
+  "tvc_estimate_log_cfu": 3.158,
+  "quality_stage": "good",
+  "status": "watch",
+  "hours_left_at_reference_temp": 48.6,
+  "hours_left_if_temperature_stays": 74.8,
+  "minutes_above_safe_temp": 397,
+  "extra_life_lost_to_heat_h": 14.0,
+  "recommendation": null
+ },
+ "C_chicken_24h_at_room_temp_30C": {
+  "tvc_estimate_log_cfu": 6.31,
+  "quality_stage": "spoiled",
+  "status": "spoiled",
+  "hours_left_at_reference_temp": 0.0,
+  "hours_left_if_temperature_stays": 0.0,
+  "minutes_above_safe_temp": 1440,
+  "extra_life_lost_to_heat_h": 201.4,
+  "recommendation": null
+ },
+ "D_strawberries_48h_at_1C": {
+  "tvc_estimate_log_cfu": 2.486,
+  "quality_stage": "excellent",
+  "status": "fresh",
+  "hours_left_at_reference_temp": 109.0,
+  "hours_left_if_temperature_stays": 207.0,
+  "minutes_above_safe_temp": 0,
+  "extra_life_lost_to_heat_h": 0.0,
+  "recommendation": null
+ },
+ "E_dairy_7days_at_4C": {
+  "tvc_estimate_log_cfu": 2.778,
+  "quality_stage": "excellent",
+  "status": "fresh",
+  "hours_left_at_reference_temp": 406.9,
+  "hours_left_if_temperature_stays": 434.5,
+  "minutes_above_safe_temp": 0,
+  "extra_life_lost_to_heat_h": 0.0,
+  "recommendation": null
+ },
+ "F_chicken_old_stock_to_Rajajinagar": {
+  "tvc_estimate_log_cfu": 4.331,
+  "quality_stage": "acceptable",
+  "status": "at_risk",
+  "hours_left_at_reference_temp": 19.2,
+  "hours_left_if_temperature_stays": 24.4,
+  "minutes_above_safe_temp": 0,
+  "extra_life_lost_to_heat_h": 0.0,
+  "recommendation": {
+   "decision": "REDIRECT",
+   "location_id": "DS-04"
+  }
+ }
+}

@@ -10,7 +10,7 @@ SCHEMA = """
 CREATE TABLE IF NOT EXISTS readings (
   crate_id TEXT, ts TEXT, stage TEXT, location_name TEXT, truck_id TEXT,
   temp_c REAL, humidity REAL, voc_index REAL, door_open INTEGER,
-  consumed REAL, freshness_score REAL, eff_rate REAL, extra_loss_h REAL, minutes REAL
+  tvc REAL, freshness_score REAL, eff_rate REAL, extra_loss_h REAL, minutes REAL
 );
 CREATE INDEX IF NOT EXISTS idx_readings_crate ON readings(crate_id, ts);
 """
@@ -18,7 +18,7 @@ CREATE INDEX IF NOT EXISTS idx_readings_crate ON readings(crate_id, ts);
 COLUMNS = [
     "crate_id", "ts", "stage", "location_name", "truck_id",
     "temp_c", "humidity", "voc_index", "door_open",
-    "consumed", "freshness_score", "eff_rate", "extra_loss_h", "minutes",
+    "tvc", "freshness_score", "eff_rate", "extra_loss_h", "minutes",
 ]
 
 
