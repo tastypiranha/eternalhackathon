@@ -1,0 +1,10 @@
+.venv/
+__pycache__/
+*.db
+node_modules/
+data/raw/
+.env
+dist/
+.pytest_cache/
+.venv-ml/
+.DS_Store

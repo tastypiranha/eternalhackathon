@@ -1,0 +1,16 @@
+{
+  "crates_simulated": 1000,
+  "fifo": {
+    "rejected": 189,
+    "kg_wasted": 3388
+  },
+  "freshsense": {
+    "rejected": 64,
+    "kg_wasted": 1162,
+    "redirected": 86,
+    "donated": 39
+  },
+  "rejection_reduction_pct": 66.1,
+  "waste_reduction_pct": 65.7,
+  "note": "Simulation with literature-based parameters, not field data."
+}

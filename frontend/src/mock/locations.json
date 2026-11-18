@@ -1,0 +1,401 @@
+{
+ "locations": [
+  {
+   "id": "WH-1",
+   "name": "Hyperpure Warehouse – Hoskote (demo)",
+   "type": "warehouse",
+   "area": "Hoskote",
+   "lat": 13.0707,
+   "lng": 77.7982,
+   "min_hours_needed": null,
+   "has_cold_room": true,
+   "demand_kg_per_day": {
+    "chicken": 0,
+    "dairy": 0,
+    "greens": 0
+   }
+  },
+  {
+   "id": "WH-2",
+   "name": "Hyperpure Warehouse – Bommasandra (demo)",
+   "type": "warehouse",
+   "area": "Bommasandra",
+   "lat": 12.818,
+   "lng": 77.695,
+   "min_hours_needed": null,
+   "has_cold_room": true,
+   "demand_kg_per_day": {
+    "chicken": 0,
+    "dairy": 0,
+    "greens": 0
+   }
+  },
+  {
+   "id": "DS-01",
+   "name": "Blinkit Dark Store – Koramangala (demo)",
+   "type": "dark_store",
+   "area": "Koramangala",
+   "lat": 12.9352,
+   "lng": 77.6245,
+   "min_hours_needed": 8,
+   "has_cold_room": false,
+   "demand_kg_per_day": {
+    "chicken": 40,
+    "dairy": 60,
+    "greens": 30
+   }
+  },
+  {
+   "id": "DS-02",
+   "name": "Blinkit Dark Store – Indiranagar (demo)",
+   "type": "dark_store",
+   "area": "Indiranagar",
+   "lat": 12.9784,
+   "lng": 77.6408,
+   "min_hours_needed": 8,
+   "has_cold_room": false,
+   "demand_kg_per_day": {
+    "chicken": 35,
+    "dairy": 50,
+    "greens": 25
+   }
+  },
+  {
+   "id": "DS-03",
+   "name": "Blinkit Dark Store – HSR Layout (demo)",
+   "type": "dark_store",
+   "area": "HSR Layout",
+   "lat": 12.9116,
+   "lng": 77.6389,
+   "min_hours_needed": 8,
+   "has_cold_room": false,
+   "demand_kg_per_day": {
+    "chicken": 30,
+    "dairy": 55,
+    "greens": 30
+   }
+  },
+  {
+   "id": "DS-04",
+   "name": "Blinkit Dark Store – Whitefield (demo)",
+   "type": "dark_store",
+   "area": "Whitefield",
+   "lat": 12.9698,
+   "lng": 77.75,
+   "min_hours_needed": 8,
+   "has_cold_room": false,
+   "demand_kg_per_day": {
+    "chicken": 45,
+    "dairy": 60,
+    "greens": 20
+   }
+  },
+  {
+   "id": "DS-05",
+   "name": "Blinkit Dark Store – Jayanagar (demo)",
+   "type": "dark_store",
+   "area": "Jayanagar",
+   "lat": 12.925,
+   "lng": 77.5938,
+   "min_hours_needed": 8,
+   "has_cold_room": false,
+   "demand_kg_per_day": {
+    "chicken": 25,
+    "dairy": 45,
+    "greens": 35
+   }
+  },
+  {
+   "id": "DS-06",
+   "name": "Blinkit Dark Store – Malleshwaram (demo)",
+   "type": "dark_store",
+   "area": "Malleshwaram",
+   "lat": 13.0035,
+   "lng": 77.571,
+   "min_hours_needed": 8,
+   "has_cold_room": false,
+   "demand_kg_per_day": {
+    "chicken": 20,
+    "dairy": 40,
+    "greens": 30
+   }
+  },
+  {
+   "id": "DS-07",
+   "name": "Blinkit Dark Store – Hebbal (demo)",
+   "type": "dark_store",
+   "area": "Hebbal",
+   "lat": 13.0358,
+   "lng": 77.597,
+   "min_hours_needed": 8,
+   "has_cold_room": false,
+   "demand_kg_per_day": {
+    "chicken": 30,
+    "dairy": 35,
+    "greens": 15
+   }
+  },
+  {
+   "id": "DS-08",
+   "name": "Blinkit Dark Store – Electronic City (demo)",
+   "type": "dark_store",
+   "area": "Electronic City",
+   "lat": 12.8452,
+   "lng": 77.6602,
+   "min_hours_needed": 8,
+   "has_cold_room": false,
+   "demand_kg_per_day": {
+    "chicken": 35,
+    "dairy": 45,
+    "greens": 20
+   }
+  },
+  {
+   "id": "R-01",
+   "name": "Zomato Partner Restaurant – MG Road (demo)",
+   "type": "restaurant",
+   "area": "MG Road",
+   "lat": 12.9756,
+   "lng": 77.605,
+   "min_hours_needed": 24,
+   "has_cold_room": true,
+   "demand_kg_per_day": {
+    "chicken": 30,
+    "dairy": 20,
+    "greens": 15
+   }
+  },
+  {
+   "id": "R-02",
+   "name": "Zomato Partner Restaurant – Marathahalli (demo)",
+   "type": "restaurant",
+   "area": "Marathahalli",
+   "lat": 12.9591,
+   "lng": 77.6974,
+   "min_hours_needed": 24,
+   "has_cold_room": true,
+   "demand_kg_per_day": {
+    "chicken": 25,
+    "dairy": 15,
+    "greens": 10
+   }
+  },
+  {
+   "id": "R-03",
+   "name": "Zomato Partner Restaurant – Bellandur (demo)",
+   "type": "restaurant",
+   "area": "Bellandur",
+   "lat": 12.926,
+   "lng": 77.6762,
+   "min_hours_needed": 24,
+   "has_cold_room": true,
+   "demand_kg_per_day": {
+    "chicken": 20,
+    "dairy": 20,
+    "greens": 15
+   }
+  },
+  {
+   "id": "R-04",
+   "name": "Zomato Partner Restaurant – BTM Layout (demo)",
+   "type": "restaurant",
+   "area": "BTM Layout",
+   "lat": 12.9166,
+   "lng": 77.6101,
+   "min_hours_needed": 24,
+   "has_cold_room": true,
+   "demand_kg_per_day": {
+    "chicken": 25,
+    "dairy": 10,
+    "greens": 20
+   }
+  },
+  {
+   "id": "R-05",
+   "name": "Zomato Partner Restaurant – JP Nagar (demo)",
+   "type": "restaurant",
+   "area": "JP Nagar",
+   "lat": 12.9063,
+   "lng": 77.5857,
+   "min_hours_needed": 24,
+   "has_cold_room": true,
+   "demand_kg_per_day": {
+    "chicken": 30,
+    "dairy": 15,
+    "greens": 10
+   }
+  },
+  {
+   "id": "R-06",
+   "name": "Zomato Partner Restaurant – Rajajinagar (demo)",
+   "type": "restaurant",
+   "area": "Rajajinagar",
+   "lat": 12.991,
+   "lng": 77.5525,
+   "min_hours_needed": 24,
+   "has_cold_room": true,
+   "demand_kg_per_day": {
+    "chicken": 40,
+    "dairy": 15,
+    "greens": 10
+   }
+  },
+  {
+   "id": "R-07",
+   "name": "Zomato Partner Restaurant – Yelahanka (demo)",
+   "type": "restaurant",
+   "area": "Yelahanka",
+   "lat": 13.1007,
+   "lng": 77.5963,
+   "min_hours_needed": 24,
+   "has_cold_room": true,
+   "demand_kg_per_day": {
+    "chicken": 20,
+    "dairy": 25,
+    "greens": 10
+   }
+  },
+  {
+   "id": "R-08",
+   "name": "Zomato Partner Restaurant – Sarjapur Road (demo)",
+   "type": "restaurant",
+   "area": "Sarjapur Road",
+   "lat": 12.901,
+   "lng": 77.686,
+   "min_hours_needed": 24,
+   "has_cold_room": true,
+   "demand_kg_per_day": {
+    "chicken": 25,
+    "dairy": 20,
+    "greens": 15
+   }
+  },
+  {
+   "id": "R-09",
+   "name": "Zomato Partner Restaurant – KR Puram (demo)",
+   "type": "restaurant",
+   "area": "KR Puram",
+   "lat": 13.0076,
+   "lng": 77.695,
+   "min_hours_needed": 24,
+   "has_cold_room": true,
+   "demand_kg_per_day": {
+    "chicken": 20,
+    "dairy": 15,
+    "greens": 20
+   }
+  },
+  {
+   "id": "R-10",
+   "name": "Zomato Partner Restaurant – Banashankari (demo)",
+   "type": "restaurant",
+   "area": "Banashankari",
+   "lat": 12.9255,
+   "lng": 77.5468,
+   "min_hours_needed": 24,
+   "has_cold_room": true,
+   "demand_kg_per_day": {
+    "chicken": 25,
+    "dairy": 20,
+    "greens": 15
+   }
+  },
+  {
+   "id": "FB-01",
+   "name": "Feeding India Partner – Shivajinagar (demo)",
+   "type": "food_bank",
+   "area": "Shivajinagar",
+   "lat": 12.9857,
+   "lng": 77.6057,
+   "min_hours_needed": 2,
+   "has_cold_room": false,
+   "demand_kg_per_day": {
+    "chicken": 50,
+    "dairy": 50,
+    "greens": 50
+   }
+  },
+  {
+   "id": "FB-02",
+   "name": "Feeding India Partner – Yeshwanthpur (demo)",
+   "type": "food_bank",
+   "area": "Yeshwanthpur",
+   "lat": 13.0285,
+   "lng": 77.5409,
+   "min_hours_needed": 2,
+   "has_cold_room": false,
+   "demand_kg_per_day": {
+    "chicken": 50,
+    "dairy": 50,
+    "greens": 50
+   }
+  }
+ ],
+ "trucks": [
+  {
+   "id": "T-1",
+   "name": "Truck 1",
+   "driver": "Ravi K. (demo)",
+   "origin_id": "WH-1",
+   "setpoint_c": 3,
+   "color": "#2563EB",
+   "past_week_extra_loss_h": 14,
+   "past_week_excursions": 3
+  },
+  {
+   "id": "T-2",
+   "name": "Truck 2",
+   "driver": "Imran S. (demo)",
+   "origin_id": "WH-1",
+   "setpoint_c": 3,
+   "color": "#9333EA",
+   "past_week_extra_loss_h": 9,
+   "past_week_excursions": 2
+  },
+  {
+   "id": "T-3",
+   "name": "Truck 3",
+   "driver": "Suresh M. (demo)",
+   "origin_id": "WH-2",
+   "setpoint_c": 3,
+   "color": "#0D9488",
+   "past_week_extra_loss_h": 41,
+   "past_week_excursions": 9
+  }
+ ],
+ "products": {
+  "chicken": {
+   "id": "chicken",
+   "label": "Chicken",
+   "emoji": "🍗",
+   "t_ref_c": 2,
+   "shelf_life_ref_h": 96,
+   "ea_kj_mol": 100,
+   "max_safe_c": 5,
+   "shock_penalty": 0.01,
+   "weight_kg": 20
+  },
+  "dairy": {
+   "id": "dairy",
+   "label": "Dairy (milk)",
+   "emoji": "🥛",
+   "t_ref_c": 4,
+   "shelf_life_ref_h": 168,
+   "ea_kj_mol": 80,
+   "max_safe_c": 7,
+   "shock_penalty": 0.01,
+   "weight_kg": 24
+  },
+  "greens": {
+   "id": "greens",
+   "label": "Leafy greens",
+   "emoji": "🥬",
+   "t_ref_c": 4,
+   "shelf_life_ref_h": 120,
+   "ea_kj_mol": 60,
+   "max_safe_c": 8,
+   "shock_penalty": 0.05,
+   "weight_kg": 10
+  }
+ }
+}
