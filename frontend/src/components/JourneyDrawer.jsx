@@ -202,7 +202,7 @@ function Report({ j, locations, onClose }) {
             <ComposedChart data={readings} margin={{ top: 5, right: 10, left: -15, bottom: 0 }}>
               <CartesianGrid strokeDasharray="3 3" stroke="#eee" />
               {xAxis}
-              <YAxis tick={{ fontSize: 10 }} domain={[40, 100]} />
+              <YAxis tick={{ fontSize: 10 }} domain={[0, 100]} />
               {tooltip}
               <Line type="monotone" dataKey="humidity" name="Humidity %" stroke="#0D9488" dot={false} strokeWidth={2} isAnimationActive={false} />
             </ComposedChart>

@@ -5,9 +5,7 @@
     "driver": "Ravi K. (demo)",
     "origin_id": "WH-1",
     "setpoint_c": 3,
-    "color": "#2563EB",
-    "past_week_extra_loss_h": 14,
-    "past_week_excursions": 3
+    "color": "#2563EB"
   },
   {
     "id": "T-2",
@@ -15,9 +13,7 @@
     "driver": "Imran S. (demo)",
     "origin_id": "WH-1",
     "setpoint_c": 3,
-    "color": "#9333EA",
-    "past_week_extra_loss_h": 9,
-    "past_week_excursions": 2
+    "color": "#9333EA"
   },
   {
     "id": "T-3",
@@ -25,8 +21,6 @@
     "driver": "Suresh M. (demo)",
     "origin_id": "WH-2",
     "setpoint_c": 3,
-    "color": "#0D9488",
-    "past_week_extra_loss_h": 41,
-    "past_week_excursions": 9
+    "color": "#0D9488"
   }
 ]

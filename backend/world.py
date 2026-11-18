@@ -105,8 +105,6 @@ class Truck:
     lng: float
     trace_id: str
     trace_pos: float
-    past_week_extra_loss_h: float = 0.0
-    past_week_excursions: int = 0
     status: str = "en_route"
     stops: list = field(default_factory=list)
     service_left_min: float = 0.0
@@ -216,8 +214,6 @@ class World:
             self.trucks[t["id"]] = Truck(
                 id=t["id"], name=t["name"], driver=t["driver"], color=t["color"], origin_id=t["origin_id"],
                 lat=origin["lat"], lng=origin["lng"], trace_id=tid, trace_pos=pos,
-                past_week_extra_loss_h=t.get("past_week_extra_loss_h", 0),
-                past_week_excursions=t.get("past_week_excursions", 0),
             )
         # live-tag crate in the Hoskote cold room
         tag = self._new_crate(None, "WH-1", None, product="dairy")

@@ -2,15 +2,10 @@ import { useState } from 'react'
 import { STATUS_COLORS, STATUS_LABELS, STATUS_ORDER, areaOf, fmtH, fmtT } from '../config'
 import { FreshnessRing } from './common'
 
-const PRODUCTS = [
-  ['chicken', '🍗 Chicken'],
-  ['dairy', '🥛 Dairy'],
-  ['greens', '🥬 Greens'],
-]
-
 export default function CratesTab({ state, locations, onOpenCrate }) {
   const [statusF, setStatusF] = useState(null)
   const [productF, setProductF] = useState(null)
+  const PRODUCTS = [...new Map((state?.crates || []).map((c) => [c.product, `${c.emoji} ${c.product_label}`])).entries()].sort()
   const crates = (state?.crates || [])
     .filter((c) => !statusF || c.status === statusF)
     .filter((c) => !productF || c.product === productF)

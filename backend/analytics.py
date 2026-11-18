@@ -11,8 +11,8 @@ def build(world):
                 "truck_id": t.id,
                 "name": t.name,
                 "driver": t.driver,
-                "extra_loss_h": round(t.past_week_extra_loss_h + t.live_extra_loss_h, 1),
-                "excursions": t.past_week_excursions + t.live_excursions,
+                "extra_loss_h": round(t.live_extra_loss_h, 1),
+                "excursions": t.live_excursions,
             }
             for t in world.trucks.values()
         ),

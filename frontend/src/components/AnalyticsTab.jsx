@@ -37,14 +37,14 @@ export default function AnalyticsTab({ trucksMeta }) {
       </div>
 
       <div className="grid gap-4 lg:grid-cols-2">
-        <Card title="Where freshness is lost: by truck" note="Extra shelf-life hours lost to heat. Last 7 days (demo data) + live.">
+        <Card title="Where freshness is lost: by truck" note="Extra shelf-life hours lost to heat while in transit, since the last reset (live).">
           <ResponsiveContainer width="100%" height={200}>
             <BarChart data={trucks} layout="vertical" margin={{ left: 20, right: 30 }}>
               <CartesianGrid strokeDasharray="3 3" stroke="#eee" />
               <XAxis type="number" tick={{ fontSize: 11 }} unit=" h" />
               <YAxis type="category" dataKey="label" width={150} tick={{ fontSize: 11 }} />
               <Tooltip formatter={(v, n) => (n === 'extra_loss_h' ? [`${v} h`, 'Extra loss'] : [v, n])} contentStyle={{ fontSize: 11 }} />
-              <Bar dataKey="extra_loss_h" radius={[0, 4, 4, 0]} label={{ position: 'right', fontSize: 11, formatter: (v) => `${v} h` }}>
+              <Bar isAnimationActive={false} dataKey="extra_loss_h" radius={[0, 4, 4, 0]} label={{ position: 'right', fontSize: 11, formatter: (v) => `${v} h` }}>
                 {trucks.map((t) => (
                   <Cell key={t.truck_id} fill={colorOf[t.truck_id] || '#6B7280'} />
                 ))}
@@ -52,7 +52,13 @@ export default function AnalyticsTab({ trucksMeta }) {
             </BarChart>
           </ResponsiveContainer>
           <div className="text-xs text-gray-600">
-            🚨 <b>{trucks[0]?.name}</b> ({trucks[0]?.driver}) has the most heat damage, with {trucks[0]?.excursions} excursions. That makes it the first truck to inspect.
+            {trucks[0]?.extra_loss_h > 0 ? (
+              <>
+                🚨 <b>{trucks[0]?.name}</b> ({trucks[0]?.driver}) has the most heat damage, with {trucks[0]?.excursions} excursions. That makes it the first truck to inspect.
+              </>
+            ) : (
+              'No heat damage in transit yet. Resume the simulation or trigger an incident.'
+            )}
           </div>
         </Card>
 
@@ -63,7 +69,7 @@ export default function AnalyticsTab({ trucksMeta }) {
               <XAxis dataKey="label" tick={{ fontSize: 11 }} />
               <YAxis tick={{ fontSize: 11 }} unit=" h" />
               <Tooltip formatter={(v) => [`${v} h`, 'Extra loss']} contentStyle={{ fontSize: 11 }} />
-              <Bar dataKey="extra_loss_h" fill="#E23744" radius={[4, 4, 0, 0]} />
+              <Bar isAnimationActive={false} dataKey="extra_loss_h" fill="#E23744" radius={[4, 4, 0, 0]} />
             </BarChart>
           </ResponsiveContainer>
         </Card>
@@ -111,8 +117,8 @@ function Benchmark({ b }) {
               <YAxis tick={{ fontSize: 11 }} />
               <Tooltip contentStyle={{ fontSize: 11 }} />
               <Legend wrapperStyle={{ fontSize: 11 }} />
-              <Bar dataKey="FIFO" fill="#9CA3AF" radius={[4, 4, 0, 0]} label={{ position: 'top', fontSize: 11 }} />
-              <Bar dataKey="FreshSense" fill="#16A34A" radius={[4, 4, 0, 0]} label={{ position: 'top', fontSize: 11 }} />
+              <Bar isAnimationActive={false} dataKey="FIFO" fill="#9CA3AF" radius={[4, 4, 0, 0]} label={{ position: 'top', fontSize: 11 }} />
+              <Bar isAnimationActive={false} dataKey="FreshSense" fill="#16A34A" radius={[4, 4, 0, 0]} label={{ position: 'top', fontSize: 11 }} />
             </BarChart>
           </ResponsiveContainer>
         ))}
