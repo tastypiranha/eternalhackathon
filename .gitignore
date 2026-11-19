@@ -2,7 +2,6 @@
 __pycache__/
 *.db
 node_modules/
-data/raw/
 .env
 dist/
 .pytest_cache/

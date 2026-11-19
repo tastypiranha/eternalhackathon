@@ -1,6 +1,6 @@
 # Data and model: what is real, what is assumed
 
-## Datasets (downloaded into `data/raw/`, git-ignored)
+## Datasets (in `data/raw/`, included in the repo; sources, licences and citations in `data/raw/README.md`)
 | Folder | Dataset | Used for |
 |---|---|---|
 | `beef_enose/` | [Wijaya et al. 2018, Mendeley mwmhh766fc](https://data.mendeley.com/datasets/mwmhh766fc): 5 series × 36 h, bacterial count (TVC) + 9 MQ gas sensors + temperature | growth rate vs temperature, gas model, test cases (TS5 held out) |
